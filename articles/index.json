@@ -1,0 +1,75 @@
+[
+  {
+    "id": "off",
+    "book": "Off",
+    "author": "Ricardo Azzi Silva",
+    "fictionalMainAuthor": null,
+    "documents": [
+      {
+        "id": "do-que-se-trata",
+        "author": "Ricardo Azzi Silva",
+        "tags": []
+      },
+      {
+        "id": "o-enderedo",
+        "author": "Ricardo Azzi Silva",
+        "tags": []
+      },
+      {
+        "id": "sobre-o-autor",
+        "author": "Ricardo Azzi Silva",
+        "tags": []
+      }
+    ]
+  },
+  {
+    "id": "o-mundo-que-voce-nao-viu---teaser",
+    "book": "O mundo que você não viu - Teaser",
+    "author": "Ger Fa Canove",
+    "documents": [
+      {
+        "id": "o-mundo",
+        "tags": [
+          "filosofia"
+        ]
+      },
+      {
+        "id": "o-sistema",
+        "tags": [
+          "filosofia"
+        ]
+      },
+      {
+        "id": "os-sentidos",
+        "tags": [
+          "filosofia"
+        ]
+      }
+    ]
+  },
+  {
+    "id": "dossie-a-saga-da-fome",
+    "book": "Dossiê A Saga da Fome",
+    "author": null,
+    "documents": [
+      {
+        "id": "diario-vazado-de-sago-duzur---a-queda",
+        "tags": [
+          "diário"
+        ]
+      },
+      {
+        "id": "alguns-nao-performam",
+        "tags": [
+          "diário"
+        ]
+      },
+      {
+        "id": "iniciativa-grupo-tartaro",
+        "tags": [
+          "história"
+        ]
+      }
+    ]
+  }
+]
