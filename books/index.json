@@ -1,7 +1,7 @@
 [
   {
-    "id": "off",
-    "book": "Off",
+    "id": "sobre-nos",
+    "book": "Sobre nós",
     "author": "Ricardo Azzi Silva",
     "fictionalMainAuthor": null,
     "documents": [
@@ -16,6 +16,11 @@
         "tags": []
       },
       {
+        "id": "o webcanone",
+        "author": "Ricardo Azzi Silva",
+        "tags": []
+      },
+      {
         "id": "sobre-o-autor",
         "author": "Ricardo Azzi Silva",
         "tags": []
@@ -23,7 +28,7 @@
     ]
   },
   {
-    "id": "o-mundo-que-voce-nao-viu---teaser",
+    "id": "o-mundo-que-voce-nao-viu-teaser",
     "book": "O mundo que você não viu - Teaser",
     "author": "Ger Fa Canove",
     "documents": [
@@ -53,7 +58,7 @@
     "author": null,
     "documents": [
       {
-        "id": "diario-vazado-de-sago-duzur---a-queda",
+        "id": "diario-vazado-de-sago-duzur-a-queda",
         "tags": [
           "diário"
         ]
