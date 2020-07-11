@@ -1,12 +1,12 @@
 <?php
 
 class File {
-  static function getJSON($path) {
-    return json_decode(file_get_contents($path));
+  static function readJSON($path) {
+    return (object) json_decode(File::readFile($path));
   }
 
-  static function setJSON() {
-    
+  static function readFile($path) {
+    return file_get_contents($path);
   }
 }
 

@@ -1,29 +1,32 @@
 <?php
 
 class WebSite {
-  function __construct() {
-    require_once("$_SERVER[DOCUMENT_ROOT]/../app/header.php");
-  }
-
-  function hasRedirectRegitred($pathInfo) {
-    $appConfig = File::getJSON("app-config.json");
-    $redirectTo = $appConfig->redirect[$pathInfo];
+  static function hasRedirectRegitred($path) {
+    $path = preg_replace('/^\/|\/$/', "", $path);
+    $appConfig = File::readJSON(APP_BASE."app-config.json");
+    $redirect = (array)$appConfig->redirect;
+    $redirectTo = @$redirect[$path];
 
     if ($redirectTo) {
-      header('redirect: $redirectTo');
+      header("location: /index.php$redirectTo");
       return true;
     }
 
     return false;
   }
+  
+  function __construct() {
+    require_once("$_SERVER[DOCUMENT_ROOT]/../app/header.php");
+  }
 
   function getPage($routeParams) {
-    if ($routeParams->book && $routeParams->chapter) {
-      new BookChapter($routeParams->book, $routeParams->chapter);
-    } elseif ($routeParams->book) {
-
+    $pathParam = $routeParams->pathParam;
+    if ($pathParam->book && $pathParam->chapter) {
+      BookChapter::render($pathParam->book, $pathParam->chapter);
+    } elseif ($pathParam->book) {
+      Book::render($pathParam->book);
     } else {
-
+      BookChapter::renderNotFound();
     }
   }
 

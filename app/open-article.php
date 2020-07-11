@@ -10,8 +10,6 @@ array_unshift($publicationMetadata, $publicationHeadingData);
 echo "<article class=\"postagem\">";
 foreach ($publicationMetadata as $templateMetadata) {
   $articleTemplater = new RainTPL();
-  $articleTemplater->tpl_dir = TEMPLATE_PATH;
-  $articleTemplater->cache_dir = TEMPLATE_CACHE_PATH;
 
   foreach ($templateMetadata as $key => $value) {
     $articleTemplater->assign($key, $value);

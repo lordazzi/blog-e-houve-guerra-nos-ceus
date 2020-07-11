@@ -37,8 +37,8 @@ define( "TPL_EXT", "html" );
 class RainTPL{
 
 	public  $var = array(),
-			$tpl_dir = "",		// template directory
-			$cache_dir = "",	// template cache/compile directory
+			$tpl_dir = TEMPLATE_PATH,		// template directory
+			$cache_dir = TEMPLATE_CACHE_PATH,	// template cache/compile directory
 			$base_url = NULL;	// template var
 			
 	private $tpl = array(),				 // array of raintpl variables
