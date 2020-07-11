@@ -75,32 +75,38 @@
     type="font/ttf"
     href="/res/fonts/IcoFont/fonts/icofont.ttf"
   >
+
+  <script src="/res/js/script.js" type="text/javascript"></script>
 </head>
 
 <body>
-  <header class="main">
+  <div id="virtual-height-main-header"></div>
+  <header id="main-header" class="main">
     <button
       type="button"
       title="Menu lateral"
       aria-label="Menu lateral"
-      class="is-icon mainmenu-button icofont-navigation-menu"
+      class="is-icon burguer mainmenu-button"
+      onclick="toogleMainMenu()"
     >
+      <span></span>
+      <span></span>
+      <span></span>
     </button>
-    <?php
-    // <button
-    //   type="button"
-    //   title="Pesquisar"
-    //   aria-label="Pesquisar"
-    //   class="is-icon search-button icofont-search-1"
-    // >
-    // </button>
-    ?>
+    <?php 
+    //<button
+    //  type="button"
+    //  title="Pesquisar"
+    //  aria-label="Pesquisar"
+    //  class="is-icon search-button icofont-search-1"
+    //>
+    //</button> ?>
     <a href="/">
       <h1>E Houve Guerra nos Céus</h1>
     </a>
   </header>
-  <nav class="sidebar-menu">
-  <h3>Sobre nós</h3>
+  <nav id="main-menu" class="sidebar-menu">
+    <h3>Sobre nós <span class="open-menu-icon icofont-curved-right"></span></h3>
     <ul>
       <li><a href="javascript:void(0)">Do que se trata</a></li>
       <li><a href="javascript:void(0)">Do que se trata</a></li>
@@ -108,7 +114,7 @@
       <li><a href="javascript:void(0)">Do que se trata</a></li>
     </ul>
 
-    <h3>Sobre nós</h3>
+    <h3>Sobre nós <span class="open-menu-icon icofont-curved-right"></span></h3>
     <ul>
       <li><a href="javascript:void(0)">Do que se trata</a></li>
       <li><a href="javascript:void(0)">Do que se trata</a></li>
@@ -116,7 +122,7 @@
       <li><a href="javascript:void(0)">Do que se trata</a></li>
     </ul>
 
-    <h3>Sobre nós</h3>
+    <h3>Sobre nós <span class="open-menu-icon icofont-curved-right"></span></h3>
     <ul>
       <li><a href="javascript:void(0)">Do que se trata</a></li>
       <li><a href="javascript:void(0)">Do que se trata</a></li>

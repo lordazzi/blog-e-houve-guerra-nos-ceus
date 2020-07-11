@@ -102,6 +102,9 @@ main[role="main"].main {
 
 /** Main Header **/
 header.main {
+  top: 0;
+  position: fixed;
+  width: 100%;
   background-color: var(--color-main-primary);
   border-bottom: .5rem solid var(--color-main-secondary);
   min-height: 3.5rem;
@@ -109,7 +112,7 @@ header.main {
 
 header.main h1 {
   font-family: 'Teko';
-  font-size: 20pt;
+  font-size: 19pt;
   color: var(--color-contrast-primary);
   text-align: center;
   user-select: none;
@@ -127,45 +130,67 @@ header.main h1 {
 header.main button.mainmenu-button,
 header.main button.search-button {
   padding: 0;
-  width: 2rem;
-  height: 2rem;
+  width: 1.5rem;
+  height: 1.5rem;
   font-size: 1.2rem;
-  margin: .75rem;
 }
 
 header.main button.mainmenu-button {
   float: left;
+  margin: 1.2rem 0 1rem .5rem;
 }
 
 header.main button.search-button {
   float: right;
+  margin: 1rem .5rem 1rem 0;
 }
 
 /** Sidebar menu **/
 nav.sidebar-menu {
   position: fixed;
+  left: -100%;
   background-color: var(--color-main-secondary);
   height: 100%;
-  padding: 1rem 2rem 1rem 1rem;
+  padding: 0rem 2rem 1rem 1rem;
   max-width: 85%;
   box-sizing: border-box;
   color: var(--color-contrast-secondary);;
   overflow: auto;
+  transition: left .25s ease-in-out;
+}
+
+.is-main-menu-active nav.sidebar-menu {
+  left: 0;
 }
 
 nav.sidebar-menu h3 {
+  margin: 1rem 0;
+  font-size: 18pt;
+}
 
+nav.sidebar-menu h3 .open-menu-icon {
+  float: right;
 }
 
 nav.sidebar-menu ul {
+  padding-left: 1rem;
+  margin: 1rem 0;
 }
 
 nav.sidebar-menu ul li {
   list-style-type: none;
+  border-bottom: 1px solid;
+  margin-top: .25rem;
 }
 
 nav.sidebar-menu ul li a {
   color: var(--color-contrast-secondary);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: 100%;
+  overflow: hidden;
+  font-size: 11pt;
 }
 
 /** Main Footer **/
@@ -198,6 +223,38 @@ footer.main .contact *:active {
 }
 
 /** COMPONENTES **/
+/** Burguer button */
+.burguer {
+  position: relative;
+  background: none;
+}
+
+.burguer span {
+  display: block;
+  position: relative;
+  height: 3px;
+  background: var(--color-main-secondary);
+  border-radius: 3px;
+  transition: all .25s ease-in-out;
+}
+
+.burguer span + span {
+  margin-top: 4px;
+}
+
+.is-main-menu-active .burguer span:nth-child(1) {
+  top: 7px;
+  transform: rotate(-135deg);
+}
+
+.is-main-menu-active .burguer span:nth-child(2) {
+  transform: rotate(-45deg);
+}
+
+.is-main-menu-active .burguer span:nth-child(3) {
+  opacity: 0;
+}
+
 /** Botões como icones **/
 button[type].is-icon,
 a.is-icon {
