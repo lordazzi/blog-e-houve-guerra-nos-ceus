@@ -1,5 +1,5 @@
   </main>
-  <footer class="main">
+  <footer id="main-footer" class="main">
     <div class="contact">
       <a href="maito:ehouveguerranosceus@gmail.com">ehouveguerranosceus@gmail.com</a>
       <div class="social-network">

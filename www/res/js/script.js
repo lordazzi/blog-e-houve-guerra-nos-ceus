@@ -7,6 +7,10 @@ function byId(id) {
   return document.getElementById(id);
 }
 
+function fixDecimal(n) {
+  return Number(n.toFixed(2));
+}
+
 function toogleMainMenu() {
   if (document.body.classList.contains('is-main-menu-active')) {
     document.body.classList.remove('is-main-menu-active');
@@ -22,31 +26,41 @@ function updateMainStructureHeight() {
   var y = mainHeader.getBoundingClientRect().height;
   var minHeight = innerHeight - y;
 
-  mainMenu.style.height = 'calc(100% - ' + y + 'px)';
-  mainMenu.style.minHeight = minHeight + 'px';
-  virtualHeader.style.height = y + 'px';
+  mainMenu.style.height = 'calc(100% - ' + fixDecimal(y) + 'px)';
+  mainMenu.style.minHeight = fixDecimal(minHeight) + 'px';
+  virtualHeader.style.height = fixDecimal(y) + 'px';
 
   if (innerWidth < MAINMENU_MOBILE_WIDTH_CONDITION) {
-    mainMenu.style.top = y + 'px';
+    mainMenu.style.top = fixDecimal(y) + 'px';
   } else {
     mainMenu.style.top = '';
   }
 }
 
-function limitItemScrollabillity(element) {
-  if (!element) {
-    return;
-  }
+function limitMainMenuScrollabillity() {
+  var mainMenu = byId('main-menu');
+  var mainHeader = byId('main-header');
+  var mainFooter = byId('main-footer');
 
-  var rect = element.getBoundingClientRect();
-  var endY = rect.height + rect.top;
+  var mainMenuRec = mainMenu.getBoundingClientRect();
+  var mainHeaderRec = mainHeader.getBoundingClientRect();
+  var mainFooterRec = mainFooter.getBoundingClientRect();
+
+  var endY = mainMenuRec.height + mainHeaderRec.height;
   var currentY = scrollY + innerHeight;
-  if (currentY > endY) {
-    element.style.position = 'relative';
-    element.style.top = (currentY - innerHeight - rect.top) + 'px';
+  var topPx;
+
+  if (currentY > (mainFooterRec.top + scrollY)) {
+    topPx = fixDecimal((mainFooterRec.top + scrollY) - mainMenuRec.height - mainHeaderRec.height) + 'px';
+    mainMenu.style.position = 'relative';
+    mainMenu.style.top = topPx;
+  } else if (currentY > endY) {
+    topPx = fixDecimal(currentY - endY) + 'px';
+    mainMenu.style.position = 'relative';
+    mainMenu.style.top = topPx;
   } else {
-    element.style.position = '';
-    element.style.top = '';
+    mainMenu.style.position = '';
+    mainMenu.style.top = '';
   }
 }
 
@@ -58,10 +72,7 @@ try {
 
 window.onload = updateMainStructureHeight;
 window.onresize = updateMainStructureHeight;
-window.onscroll = function () {
-  limitItemScrollabillity(byId('main-menu'));
-  // limitItemScrollabillity(byId('main'));
-};
+window.onscroll = limitMainMenuScrollabillity;
 
 /**
  * Google Analytics
