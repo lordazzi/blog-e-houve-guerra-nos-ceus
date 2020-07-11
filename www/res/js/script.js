@@ -50,7 +50,10 @@ function limitMainMenuScrollabillity() {
   var currentY = scrollY + innerHeight;
   var topPx;
 
-  if (currentY > (mainFooterRec.top + scrollY)) {
+  if (innerWidth < MAINMENU_MOBILE_WIDTH_CONDITION) {
+    mainMenu.style.position = '';
+    mainMenu.style.top = '';
+  } else if (currentY > (mainFooterRec.top + scrollY)) {
     topPx = fixDecimal((mainFooterRec.top + scrollY) - mainMenuRec.height - mainHeaderRec.height) + 'px';
     mainMenu.style.position = 'relative';
     mainMenu.style.top = topPx;
