@@ -1,27 +1,14 @@
 /** ESTRUTURAS PRINCIPAIS **/
 /** Header **/
-header.main {
-  height: 6rem;
+header.main button.mainmenu-button {
+  display: none;
 }
 
-header.main h1 {
-  font-size: 3rem;
-}
-
-header.main button.mainmenu-button,
-header.main button.search-button {
-  font-size: 3rem;
-  margin: 1.3rem 1rem;
-}
-
-/** Postagem como section **/
-section.postagem {
-  margin: 0;
-}
-
-section.postagem ~ hr {
-  margin: 0;
-  padding: 0.5em;
-  display: inherit;
-  background-color: var(--color-white);
+/** ESTRUTURAS PRINCIPAIS **/
+/** Sidebar menu **/
+nav.sidebar-menu {
+  position: static;
+  max-width: 25rem;
+  float: left;
+  left: 0;
 }

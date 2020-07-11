@@ -1,0 +1,24 @@
+/** ESTRUTURAS PRINCIPAIS **/
+/** Header **/
+header.main h1 > a {
+  font-size: 29pt;
+}
+
+header.main button.mainmenu-button {
+  font-size: 3rem;
+  width: 2rem;
+  height: 2rem;
+  margin: 1.75rem 1.5rem;
+}
+
+/** Postagem como section **/
+section.postagem {
+  margin: 0;
+}
+
+section.postagem ~ hr {
+  margin: 0;
+  padding: 0.5em;
+  display: inherit;
+  background-color: var(--color-white);
+}

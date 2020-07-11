@@ -107,42 +107,28 @@ header.main {
   width: 100%;
   background-color: var(--color-main-primary);
   border-bottom: .5rem solid var(--color-main-secondary);
-  min-height: 3.5rem;
 }
 
 header.main h1 {
+  font-size: 0;
+  text-align: center;
+  padding: 1rem;
+}
+
+header.main h1 > a {
   font-family: 'Teko';
   font-size: 19pt;
   color: var(--color-contrast-primary);
-  text-align: center;
   user-select: none;
-  padding: 1rem;
-  text-shadow: 2px 0 0 var(--color-contrast-secondary),
-              -2px 0 0 var(--color-contrast-secondary),
-              0 2px 0 var(--color-contrast-secondary),
-              0 -2px 0 var(--color-contrast-secondary),
-              1px 1px var(--color-contrast-secondary),
-              -1px -1px 0 var(--color-contrast-secondary),
-              1px -1px 0 var(--color-contrast-secondary),
-              -1px 1px 0 var(--color-contrast-secondary);
-}
-
-header.main button.mainmenu-button,
-header.main button.search-button {
-  padding: 0;
-  width: 1.5rem;
-  height: 1.5rem;
-  font-size: 1.2rem;
 }
 
 header.main button.mainmenu-button {
   float: left;
-  margin: 1.2rem 0 1rem .5rem;
-}
-
-header.main button.search-button {
-  float: right;
-  margin: 1rem .5rem 1rem 0;
+  padding: 0;
+  width: 1.5rem;
+  height: 1.5rem;
+  font-size: 1.2rem;
+  margin: 1.2rem 0.5rem 1rem .85rem;
 }
 
 /** Sidebar menu **/
@@ -150,7 +136,6 @@ nav.sidebar-menu {
   position: fixed;
   left: -100%;
   background-color: var(--color-main-secondary);
-  height: 100%;
   padding: 0rem 2rem 1rem 1rem;
   max-width: 85%;
   box-sizing: border-box;
@@ -163,12 +148,21 @@ nav.sidebar-menu {
   left: 0;
 }
 
-nav.sidebar-menu h3 {
+nav.sidebar-menu .submenu-heading {
   margin: 1rem 0;
-  font-size: 18pt;
+  width: 100%;
 }
 
-nav.sidebar-menu h3 .open-menu-icon {
+nav.sidebar-menu h3 {
+  font-size: 18pt;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  display: inline-block;
+  width: calc(100% - 25px);
+  overflow: hidden;
+}
+
+nav.sidebar-menu .open-menu-icon {
   float: right;
 }
 
@@ -290,8 +284,8 @@ article.postagem {
 }
 
 article.postagem > h1 {
-  margin-top: 1rem;
   font-weight: normal;
+  margin-top: 1rem;
 }
 
 article.postagem > h1 + h2 {

@@ -16,7 +16,6 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'UA-172157320-1');
   </script>
 
@@ -30,6 +29,12 @@
     rel="stylesheet"
     type="text/css"
     media="(min-width:700px)"
+    href="/res/style/tablet-style.css"
+  >
+  <link
+    rel="stylesheet"
+    type="text/css"
+    media="(min-width:1000px)"
     href="/res/style/desktop-style.css"
   >
   <link
@@ -93,20 +98,15 @@
       <span></span>
       <span></span>
     </button>
-    <?php 
-    //<button
-    //  type="button"
-    //  title="Pesquisar"
-    //  aria-label="Pesquisar"
-    //  class="is-icon search-button icofont-search-1"
-    //>
-    //</button> ?>
-    <a href="/">
-      <h1>E Houve Guerra nos Céus</h1>
-    </a>
+    <h1>
+      <a href="/">E Houve Guerra nos Céus</a>
+    </h1>
   </header>
   <nav id="main-menu" class="sidebar-menu">
-    <h3>Sobre nós <span class="open-menu-icon icofont-curved-right"></span></h3>
+  <div class="submenu-heading">
+      <h3 title="Sobre nós">Sobre nós</h3>
+      <span class="open-menu-icon icofont-curved-right"></span>
+    </div>  
     <ul>
       <li><a href="javascript:void(0)">Do que se trata</a></li>
       <li><a href="javascript:void(0)">Do que se trata</a></li>
@@ -114,7 +114,10 @@
       <li><a href="javascript:void(0)">Do que se trata</a></li>
     </ul>
 
-    <h3>Sobre nós <span class="open-menu-icon icofont-curved-right"></span></h3>
+    <div class="submenu-heading">
+      <h3 title="O mundo que você não lembra - Teaser">O mundo que você não lembra - Teaser</h3>
+      <span class="open-menu-icon icofont-curved-right"></span>
+    </div>
     <ul>
       <li><a href="javascript:void(0)">Do que se trata</a></li>
       <li><a href="javascript:void(0)">Do que se trata</a></li>
@@ -122,7 +125,43 @@
       <li><a href="javascript:void(0)">Do que se trata</a></li>
     </ul>
 
-    <h3>Sobre nós <span class="open-menu-icon icofont-curved-right"></span></h3>
+    <div class="submenu-heading">
+      <h3 title="Dossiê: A saga da fome">Dossiê: A saga da fome</h3>
+      <span class="open-menu-icon icofont-curved-right"></span>
+    </div>
+    <ul>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+    </ul>
+
+    <div class="submenu-heading">
+      <h3 title="Sobre nós">Texto D</h3>
+      <span class="open-menu-icon icofont-curved-right"></span>
+    </div>  
+    <ul>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+    </ul>
+
+    <div class="submenu-heading">
+      <h3 title="O mundo que você não lembra - Teaser">Texto E</h3>
+      <span class="open-menu-icon icofont-curved-right"></span>
+    </div>
+    <ul>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+    </ul>
+
+    <div class="submenu-heading">
+      <h3 title="Dossiê: A saga da fome">Texto F</h3>
+      <span class="open-menu-icon icofont-curved-right"></span>
+    </div>
     <ul>
       <li><a href="javascript:void(0)">Do que se trata</a></li>
       <li><a href="javascript:void(0)">Do que se trata</a></li>
@@ -130,4 +169,4 @@
       <li><a href="javascript:void(0)">Do que se trata</a></li>
     </ul>
   </nav>
-  <main class="main" role="main">
+  <main id="main" class="main" role="main">
