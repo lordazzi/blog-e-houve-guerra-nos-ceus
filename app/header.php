@@ -79,14 +79,14 @@
 
 <body>
   <header class="main">
+    <button
+      type="button"
+      title="Menu lateral"
+      aria-label="Menu lateral"
+      class="is-icon mainmenu-button icofont-navigation-menu"
+    >
+    </button>
     <?php
-    // <button
-    //   type="button"
-    //   title="Menu lateral"
-    //   aria-label="Menu lateral"
-    //   class="is-icon mainmenu-button icofont-navigation-menu"
-    // >
-    // </button>
     // <button
     //   type="button"
     //   title="Pesquisar"
@@ -99,4 +99,29 @@
       <h1>E Houve Guerra nos Céus</h1>
     </a>
   </header>
+  <nav class="sidebar-menu">
+  <h3>Sobre nós</h3>
+    <ul>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+    </ul>
+
+    <h3>Sobre nós</h3>
+    <ul>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+    </ul>
+
+    <h3>Sobre nós</h3>
+    <ul>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+      <li><a href="javascript:void(0)">Do que se trata</a></li>
+    </ul>
+  </nav>
   <main class="main" role="main">

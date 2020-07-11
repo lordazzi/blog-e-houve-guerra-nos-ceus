@@ -141,6 +141,33 @@ header.main button.search-button {
   float: right;
 }
 
+/** Sidebar menu **/
+nav.sidebar-menu {
+  position: fixed;
+  background-color: var(--color-main-secondary);
+  height: 100%;
+  padding: 1rem 2rem 1rem 1rem;
+  max-width: 85%;
+  box-sizing: border-box;
+  color: var(--color-contrast-secondary);;
+  overflow: auto;
+}
+
+nav.sidebar-menu h3 {
+
+}
+
+nav.sidebar-menu ul {
+}
+
+nav.sidebar-menu ul li {
+  list-style-type: none;
+}
+
+nav.sidebar-menu ul li a {
+  color: var(--color-contrast-secondary);
+}
+
 /** Main Footer **/
 footer.main {
   background-color: var(--color-main-secondary);

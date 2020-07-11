@@ -1,6 +1,16 @@
 <?php
 
 class BookChapter {
+
+  static function listChapters($page = 1) {
+    $books = File::readJSON(BOOK_PATH."index.json");
+
+    $books = scandir();
+    $books = array_filter($books, "filter");
+    sort($books);
+    echo json_encode($books);
+  }
+
   static function render($book, $chapter) {
     try {
       $publicationHeadingData = File::readJSON(BOOK_PATH . "$book/$chapter.json");
