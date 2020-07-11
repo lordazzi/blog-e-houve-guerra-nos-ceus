@@ -2,30 +2,38 @@
 
 class BookChapter {
 
-  static function listChapters($page = 1) {
-    $books = File::readJSON(BOOK_PATH."index.json");
+  static function listArticles($page = 1) {
+    // $books = Book::list();
+  }
 
-    $books = scandir();
-    $books = array_filter($books, "filter");
-    sort($books);
-    echo json_encode($books);
+  // static function list($book) {
+  //   File::readJSON(BOOK_PATH."index.json");
+  // }
+
+  static function catchChapter($book, $chapter) {
+    try {
+      $chapterHeadingData = File::readJSON(BOOK_PATH . "$book/$chapter.json");
+      $readme = File::readFile(BOOK_PATH . "$book/$chapter.md");
+    } catch (Exception $e) {
+      return null;
+    }
+
+    $chapterHeadingData->template = "article-head";
+    $chapterMetadata = (new ReadmeReader())->interpret($readme);
+    array_unshift($chapterMetadata, $chapterHeadingData);
+
+    return $chapterMetadata;
   }
 
   static function render($book, $chapter) {
-    try {
-      $publicationHeadingData = File::readJSON(BOOK_PATH . "$book/$chapter.json");
-      $readme = File::readFile(BOOK_PATH . "$book/$chapter.md");
-    } catch (Exception $e) {
+    $chapterMetadata = BookChapter::catchChapter($book, $chapter);
+    if ($chapterMetadata === null) {
       BookChapter::renderNotFound();
       return;
     }
-
-    $publicationHeadingData->template = "article-head";
-    $publicationMetadata = (new ReadmeReader())->interpret($readme);
-    array_unshift($publicationMetadata, $publicationHeadingData);
     
     echo "<article class=\"postagem\">";
-    foreach ($publicationMetadata as $templateMetadata) {
+    foreach ($chapterMetadata as $templateMetadata) {
       $articleTemplater = new RainTPL();
 
       foreach ($templateMetadata as $key => $value) {

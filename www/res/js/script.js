@@ -51,8 +51,8 @@ function limitMainMenuScrollabillity() {
   var topPx;
 
   if (innerWidth < MAINMENU_MOBILE_WIDTH_CONDITION) {
-    mainMenu.style.position = '';
     mainMenu.style.top = '';
+    mainMenu.style.position = '';
   } else if (currentY > (mainFooterRec.top + scrollY)) {
     topPx = fixDecimal((mainFooterRec.top + scrollY) - mainMenuRec.height - mainHeaderRec.height) + 'px';
     mainMenu.style.position = 'relative';

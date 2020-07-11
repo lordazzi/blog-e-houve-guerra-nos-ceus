@@ -5,7 +5,7 @@
     class="publication-author"
     title="{$author}"
   >por {$author} <span class="publication-location"> - {$location}</span></p>
-  <time itemprop="datePublished"> {$publishedDate} </time>
+  <time itemprop="datePublished"> {function="date("d/m/Y H:i", $publishedDate)"} </time>
 </div>
 
 <hr />

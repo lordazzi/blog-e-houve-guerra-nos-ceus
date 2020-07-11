@@ -5,7 +5,7 @@
     class="publication-author"
     title="<?php echo $this->var['author'];?>"
   >por <?php echo $this->var['author'];?> <span class="publication-location"> - <?php echo $this->var['location'];?></span></p>
-  <time itemprop="datePublished"> <?php echo $this->var['publishedDate'];?> </time>
+  <time itemprop="datePublished"> <?php echo date("d/m/Y H:i", $this->var['publishedDate']); ?> </time>
 </div>
 
 <hr />
