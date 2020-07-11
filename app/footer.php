@@ -27,6 +27,14 @@
           target="_blank"
           class="is-icon icofont-reddit"
         ></a>
+        <a
+          rel="noopener noreferrer"
+          href="https://github.com/lordazzi/website-e-houve-guerra-nos-ceus"
+          target="_blank"
+          class="is-icon"
+        >
+          <img alt="Github logo" src="/res/fonts/github-icon.svg" />
+        </a>
       </div>
     </div>
   </footer>

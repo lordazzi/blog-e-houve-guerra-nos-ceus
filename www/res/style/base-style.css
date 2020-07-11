@@ -221,6 +221,10 @@ a.is-icon:active {
   text-decoration: none;
 }
 
+a.is-icon img {
+  width: 24px;
+}
+
 /** Postagem, heading **/
 article.postagem {
   padding: 1rem;
