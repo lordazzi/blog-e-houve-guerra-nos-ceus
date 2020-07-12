@@ -31,17 +31,22 @@ class ReadmeReader {
   }
 
   private function castTextFormatation($paragraph) {
-    $paragraph = $this->castMdFormatationToTag($paragraph, '\*\*\*', '<b><i>', '</i></b>');
-    $paragraph = $this->castMdFormatationToTag($paragraph, '\*\*', '<b>', '</b>');
-    $paragraph = $this->castMdFormatationToTag($paragraph, '\*', '<i>', '</i>');
+    $paragraph = $this->castMdFormatationToTag($paragraph, '***', '<b><i>', '</i></b>');
+    $paragraph = $this->castMdFormatationToTag($paragraph, '**', '<b>', '</b>');
+    $paragraph = $this->castMdFormatationToTag($paragraph, '*', '<i>', '</i>');
     $paragraph = $this->castMdFormatationToTag($paragraph, '_', '<i>', '</i>');
 
     return $paragraph;
   }
 
   private function castMdFormatationToTag($paragraph, $mdSymbol, $tagOpen, $tagClose) {
-    $paragraph = preg_replace('/('.$mdSymbol.'\w*'.$mdSymbol.')/', "$tagOpen\$1$tagClose", $paragraph);
-    return preg_replace('/('.$mdSymbol.')/', '', $paragraph);
+    $escapedMdSymbol = preg_quote($mdSymbol, '<\\');
+
+    $paragraph = preg_replace('/('.$escapedMdSymbol.'\w*'.$escapedMdSymbol.')/', "$tagOpen\$1$tagClose", $paragraph);
+    $paragraph = str_replace($tagOpen.$mdSymbol, $tagOpen, $paragraph);
+    $paragraph = str_replace($mdSymbol.$tagClose, $tagClose, $paragraph);
+
+    return $paragraph;
   }
   
   private function createHeadedObject() {

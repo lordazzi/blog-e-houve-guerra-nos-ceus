@@ -1,7 +1,7 @@
 # Os sentidos
 
 > “Nem toda carne é a mesma: os homens têm uma espécie de carne, os animais têm outra, as aves outra, e os peixes outra [...]. Se há corpo natural, há também corpo espiritual.”
-> 1 Coríntios 15: 39 e 44b
+>> 1 Coríntios 15: 39 e 44b
 
 O tema dos versículos que citei não se refere à composição dos corpos dos anjos, mas sobre a dos seres *humanos* após a ressurreição, mas claro, isso me dá abertura para falar daquilo que já estava argumentando: não é por que você não nos vê, que estamos além das leis naturais.
 A forma pela qual nos comunicamos não é pelo lançar vibrações ao vento na esperança que as antenas de outro recebam estes sinais e os interprete, que é como os *humanos* fazem, mas nós criamos conexões psíquicas num acordo bilateral e fazemos transmissão de dados por intermédio desta. Cada ser tem seu limite individual de distância que consegue estabelecer uma conexão com outro, mas se você tem uma área pequena de conexão e está dentro de alguém que tenha uma área gigante, então você consegue estabelecer conexão com este.

@@ -7,10 +7,10 @@ Os anjos não trabalham para saciar suas necessidades, mas as necessidades que o
 Os anjos sempre vivem nos litorais de seus planetas, já que não existe Água da Vida salgada que faça mal para nossa saúde, nos abastecermos destes grandes mares não é um problema. O nosso sol não é uma estrela, mas é o próprio Deus, que emana uma energia por todo o abismo, que vocês conhecem por universo. A distribuição de Frutos da Vida e Folhas da Árvore da Vida é feita por anjos de alto nível, não precisamos pagar para recebê-las, na verdade o consumo destas frutas é uma lei.
 
 > “No meio da sua praça, e de um e de outro lado do rio, estava a árvore da vida, [...] e as folhas da árvore são para a saúde das nações”.
-> Apocalipse 22: 2
+>> Apocalipse 22: 2
 
 > “Não se deve, pois, permitir que ele também tome do fruto da árvore da vida e o coma, e viva para sempre”.
-> Gênesis 3:22b
+>> Gênesis 3:22b
 
 Além das Frutas da Vida, existem frutas que não garantem vida, garantem apenas a possibilidade de sentir sabores, sensações, são essas as que eu vendo: frutas que estão na categoria de vaidade, ou seja, não é necessária para a vida, uma função de baixa relevância, considerando a quantidade de anjos que tem a mesma função que a minha.
 No geral, o comércio dos anjos tem grandes similitaridades com o comercio dos seres *humanos*, exceto pelo fato de girar apenas em torno de coisas que não são necessárias: o desejo de sentir um sabor diferente, uma roupa mais bonita, conforto, uma casa bonita, entretenimento, todas essas coisas não são necessárias para garantir sua vida, mas são interessantes de se obter para saciar a vaidade. Basicamente o que movimenta a sociedade dos anjos, são as pequenas vaidades.
