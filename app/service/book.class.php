@@ -2,7 +2,7 @@
 
 class Book {
   static function render($book) {
-
+    return $book;
   }
 
   static function getList() {

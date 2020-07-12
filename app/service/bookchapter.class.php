@@ -3,7 +3,11 @@
 class BookChapter {
 
   static function listArticles($page = 1) {
-    // $books = Book::list();
+    if ($page) {
+      return Book::getList();
+    }
+
+    return null;
   }
 
   static function getChapterHeadingMetaData($book, $chapter) {
