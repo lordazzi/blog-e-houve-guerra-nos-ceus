@@ -67,6 +67,24 @@ function limitMainMenuScrollabillity() {
   }
 }
 
+function getTimestamp(h, i, d, m, y) {
+  var date = new Date();
+  h = h == null ? date.getUTCHours() : h;
+  i = i == null ? date.getUTCMinutes() : i;
+  d = d == null ? date.getUTCDate() : d;
+  m = m == null ? date.getUTCMonth() : m;
+  y = y == null ? date.getUTCFullYear() : y;
+
+  date.setUTCSeconds(0);
+  date.setUTCHours(h);
+  date.setUTCMinutes(i);
+  date.setUTCDate(d);
+  date.setUTCMonth(m);
+  date.setUTCFullYear(y);
+
+  return Math.floor(date.getTime() / 1000) + (3 * 60 * 60);
+}
+
 try {
   updateMainStructureHeight();
 } catch (e) {

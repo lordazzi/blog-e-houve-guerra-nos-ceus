@@ -1,0 +1,3 @@
+Em nosso universo, existe um grupo de entidades que são pouco valorizadas, são seres que tem uma ótima habilidade para algo que não é de interesse comum, a habilidade de escrever em “humanês”.
+Ger Fa Canove é um arvorídeo filosofo que pertence e participa ativamente do grupo, gerando algum conteúdo interessante que se possa aproveitar para este cânone.
+O mundo que você não viu se trata de uma potencial conversação entre ele e um hipotético leitor *humano*. Neste ele dá explicações e argumentações sobre nosso mundo, por isso achei conveniente que fosse o primeiro.
