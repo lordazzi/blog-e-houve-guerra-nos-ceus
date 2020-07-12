@@ -115,14 +115,15 @@
     id="main-menu"
     class="sidebar-menu"
   >
-    <?php $counter1=-1; if( isset($this->var['book']) && is_array($this->var['book']) && sizeof($this->var['book']) ) foreach( $this->var['book'] as $key1 => $value1 ){ $counter1++; ?>
+    <?php $counter1=-1; if( isset($this->var['books']) && is_array($this->var['books']) && sizeof($this->var['books']) ) foreach( $this->var['books'] as $key1 => $value1 ){ $counter1++; ?>
+    <?php $this->var['book']=$value1;?>
     <div class="submenu-heading">
-      <h3 title="<?php echo $value1->title;?>"><?php echo $value1->title;?></h3>
+      <h3 title="<?php echo $this->var['book']->title;?>"><?php echo $this->var['book']->title;?></h3>
       <span class="open-menu-icon icofont-curved-right"></span>
     </div>
     <ul>
       <?php $counter2=-1; if( isset($value1->chapters) && is_array($value1->chapters) && sizeof($value1->chapters) ) foreach( $value1->chapters as $key2 => $value2 ){ $counter2++; ?>
-      <li><a href="javascript:void(0)"><?php echo $value2;?></a></li>
+      <li><a href="/index.php/book/<?php echo $this->var['book']->path;?>/chapter/<?php echo $value2->path;?>/"><?php echo $value2->title;?></a></li>
       <?php } ?>
     </ul>
     <?php } ?>

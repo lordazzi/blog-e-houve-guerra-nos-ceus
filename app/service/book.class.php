@@ -24,13 +24,15 @@ class Book {
 
     foreach ($bookMetaData->chapters as $chapter) {
       //  check if chapter is published
-      $chapterMetaData = BookChapter::getChapterMetaData($book, $chapter);
+      $chapterMetaData = BookChapter::getChapterHeadingMetaData($book, $chapter);
       if ($chapterMetaData !== null) {
-        array_push($chapters, $chapter);
+        array_push($chapters, $chapterMetaData);
       }
     }
 
+    $bookMetaData->path = $book;
     $bookMetaData->chapters = $chapters;
+
     return $bookMetaData;
   }
 }

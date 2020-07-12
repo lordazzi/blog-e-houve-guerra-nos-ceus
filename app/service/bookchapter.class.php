@@ -6,13 +6,28 @@ class BookChapter {
     // $books = Book::list();
   }
 
-  // static function list($book) {
-  //   File::readJSON(BOOK_PATH."index.json");
-  // }
-
-  static function getChapterMetaData($book, $chapter) {
+  static function getChapterHeadingMetaData($book, $chapter) {
     try {
       $chapterHeadingData = File::readJSON(BOOK_PATH . "$book/$chapter.json");
+    } catch (Exception $e) {
+      return null;
+    }
+
+    if (!@$chapterHeadingData || !@$chapterHeadingData->publishedDate) {
+      return null;
+    } elseif ($chapterHeadingData->publishedDate > time()) {
+      return null;
+    }
+    
+    $chapterHeadingData->template = "article-head";
+    $chapterHeadingData->path = $chapter;
+    return $chapterHeadingData;
+  }
+
+  static function getChapterMetaData($book, $chapter) {
+    $chapterHeadingData = BookChapter::getChapterHeadingMetaData($book, $chapter);
+
+    try {
       $readme = File::readFile(BOOK_PATH . "$book/$chapter.md");
     } catch (Exception $e) {
       return null;
@@ -22,15 +37,8 @@ class BookChapter {
       return null;
     }
 
-    $chapterHeadingData->template = "article-head";
     $chapterMetadata = (new ReadmeReader())->interpret($readme);
     array_unshift($chapterMetadata, $chapterHeadingData);
-
-    if (!@$chapterHeadingData->publishedDate) {
-      return null;
-    } elseif ($chapterHeadingData->publishedDate > time()) {
-      return null;
-    }
 
     return $chapterMetadata;
   }

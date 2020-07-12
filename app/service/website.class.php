@@ -17,7 +17,7 @@ class WebSite {
   
   function __construct() {
     $headerHtml = new RainTPL();
-    $headerHtml->assign("book", Book::getList());
+    $headerHtml->assign("books", Book::getList());
     $headerHtml->draw("header");
   }
 

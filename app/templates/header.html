@@ -115,14 +115,15 @@
     id="main-menu"
     class="sidebar-menu"
   >
-    {loop="$book"}
+    {loop="$books"}
+    {$book=$value}
     <div class="submenu-heading">
-      <h3 title="{$value->title}">{$value->title}</h3>
+      <h3 title="{$book->title}">{$book->title}</h3>
       <span class="open-menu-icon icofont-curved-right"></span>
     </div>
     <ul>
       {loop="$value->chapters"}
-      <li><a href="javascript:void(0)">{$value}</a></li>
+      <li><a href="/index.php/book/{$book->path}/chapter/{$value->path}/">{$value->title}</a></li>
       {/loop}
     </ul>
     {/loop}
