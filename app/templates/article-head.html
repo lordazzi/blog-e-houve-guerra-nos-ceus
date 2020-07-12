@@ -1,11 +1,15 @@
-<h1 itemprop="headline">{$title}</h1>
-<h2 itemprop="alternativeHeadline">{$subtitle}</h2>
-<div class="publication-data">
-  <p
-    class="publication-author"
-    title="{$author}"
-  >por {$author} <span class="publication-location"> - {$location}</span></p>
-  <time itemprop="datePublished"> {$publishedDate} </time>
-</div>
+<article class="postagem">
+  <h1 itemprop="headline">{$title}</h1>
+  <h2 itemprop="alternativeHeadline">{$subtitle}</h2>
+  <div class="publication-data">
+    <p
+      class="publication-author"
+      title="{$author}"
+    >por {$author} <span class="publication-location"> - {$location}</span></p>
+    <time itemprop="datePublished"> {function="date("d/m/Y H:i", $publishedDate)"} </time>
+    {if="$lastEditDate"}
+    <time class="last-edition"> última edição {function="date("d/m/Y H:i", $lastEditDate)"} </time>
+    {/if}
+  </div>
 
-<hr />
+  <hr />

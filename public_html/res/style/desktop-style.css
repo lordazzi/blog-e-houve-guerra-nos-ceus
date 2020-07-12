@@ -1,0 +1,14 @@
+/** ESTRUTURAS PRINCIPAIS **/
+/** Header **/
+header.main button.mainmenu-button {
+  display: none;
+}
+
+/** ESTRUTURAS PRINCIPAIS **/
+/** Sidebar menu **/
+nav.sidebar-menu {
+  position: static;
+  max-width: 25rem;
+  float: left;
+  left: 0;
+}

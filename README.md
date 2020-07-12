@@ -1,6 +1,6 @@
 # Site do "E Houve Guerra nos Céus"
 
-O código contido aqui é o utilizado no [site do E Houve Guerra nos Céus](https://ehouveguerranosceus.com.br/index.php/article/do-que-se-trata/). Construí esta plataforma para publicar meus contos que pertencem ao Javerse, o universo de livro E Houve Guerra nos Céus. O código que estiver na master é o código que está rodando em produção.
+O código contido aqui é o utilizado no [site do E Houve Guerra nos Céus](https://ehouveguerranosceus.com.br/). Construí esta plataforma para publicar meus contos que pertencem ao Javerse, o universo de livro E Houve Guerra nos Céus. O código que estiver na master é o código que está rodando em produção.
 
 A estrutura converte arquivos MD em arquivo HTML.
 
