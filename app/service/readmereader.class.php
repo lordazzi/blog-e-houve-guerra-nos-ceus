@@ -23,6 +23,8 @@ class ReadmeReader {
         $currentHeading->title = $this->castHeadingMdToHeadingText($line);
       } elseif ($this->isQuotationCite($line)) {
         $currentHeading->cite = $this->cleanMdQuote($line);
+        array_push($resultSet, $currentHeading);
+        $currentHeading = $this->createHeadedObject();
       } elseif ($this->isQuotation($line)) {
         if ($currentHeading->template !== "article-quotation") {
           array_push($resultSet, $currentHeading);
