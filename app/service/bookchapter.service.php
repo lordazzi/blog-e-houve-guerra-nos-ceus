@@ -10,7 +10,7 @@ class BookChapter {
   //   File::readJSON(BOOK_PATH."index.json");
   // }
 
-  static function catchChapter($book, $chapter) {
+  static function getChapterMetaData($book, $chapter) {
     try {
       $chapterHeadingData = File::readJSON(BOOK_PATH . "$book/$chapter.json");
       $readme = File::readFile(BOOK_PATH . "$book/$chapter.md");
@@ -22,11 +22,18 @@ class BookChapter {
     $chapterMetadata = (new ReadmeReader())->interpret($readme);
     array_unshift($chapterMetadata, $chapterHeadingData);
 
+    $notPublishedDateDefined = !$chapterHeadingData->publishedDate;
+    $notPublishedYet = $chapterHeadingData->publishedDate < time();
+
+    if ($notPublishedDateDefined || $notPublishedYet) {
+      return null;
+    }
+
     return $chapterMetadata;
   }
 
   static function render($book, $chapter) {
-    $chapterMetadata = BookChapter::catchChapter($book, $chapter);
+    $chapterMetadata = BookChapter::getChapterMetaData($book, $chapter);
     if ($chapterMetadata === null) {
       BookChapter::renderNotFound();
       return;
