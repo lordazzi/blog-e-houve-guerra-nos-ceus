@@ -16,7 +16,9 @@ class WebSite {
   }
   
   function __construct() {
-    require_once("$_SERVER[DOCUMENT_ROOT]/../app/header.php");
+    $headerHtml = new RainTPL();
+    $headerHtml->assign("book", Book::getList());
+    $headerHtml->draw("header");
   }
 
   function getPage($routeParams) {
@@ -31,7 +33,8 @@ class WebSite {
   }
 
   function __destruct() {
-    require_once("$_SERVER[DOCUMENT_ROOT]/../app/footer.php");
+    $headerHtml = new RainTPL();
+    $headerHtml->draw("footer");
   }
 }
 ?>

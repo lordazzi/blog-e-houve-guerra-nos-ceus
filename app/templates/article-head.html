@@ -6,8 +6,8 @@
     title="{$author}"
   >por {$author} <span class="publication-location"> - {$location}</span></p>
   <time itemprop="datePublished"> {function="date("d/m/Y H:i", $publishedDate)"} </time>
-  {if="$lastEditDate"}
-  <time> edit {function="date("d/m/Y H:i", $lastEditDate)"} </time>
+  {if="@$lastEditDate"}
+  <time> última edição {function="date("d/m/Y H:i", $lastEditDate)"} </time>
   {/if}
 </div>
 

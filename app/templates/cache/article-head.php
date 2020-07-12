@@ -6,6 +6,9 @@
     title="<?php echo $this->var['author'];?>"
   >por <?php echo $this->var['author'];?> <span class="publication-location"> - <?php echo $this->var['location'];?></span></p>
   <time itemprop="datePublished"> <?php echo date("d/m/Y H:i", $this->var['publishedDate']); ?> </time>
+  <?php if( @$this->var['lastEditDate'] ){ ?>
+  <time> última edição <?php echo date("d/m/Y H:i", $this->var['lastEditDate']); ?> </time>
+  <?php } ?>
 </div>
 
 <hr />

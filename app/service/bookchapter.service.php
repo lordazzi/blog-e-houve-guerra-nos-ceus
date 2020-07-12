@@ -18,14 +18,17 @@ class BookChapter {
       return null;
     }
 
+    if ($chapterHeadingData === null || $readme === null) {
+      return null;
+    }
+
     $chapterHeadingData->template = "article-head";
     $chapterMetadata = (new ReadmeReader())->interpret($readme);
     array_unshift($chapterMetadata, $chapterHeadingData);
 
-    $notPublishedDateDefined = !$chapterHeadingData->publishedDate;
-    $notPublishedYet = $chapterHeadingData->publishedDate < time();
-
-    if ($notPublishedDateDefined || $notPublishedYet) {
+    if (!@$chapterHeadingData->publishedDate) {
+      return null;
+    } elseif ($chapterHeadingData->publishedDate > time()) {
       return null;
     }
 

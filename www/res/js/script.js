@@ -74,8 +74,11 @@ try {
 }
 
 window.onload = updateMainStructureHeight;
-window.onresize = updateMainStructureHeight;
 window.onscroll = limitMainMenuScrollabillity;
+window.onresize = function () {
+  updateMainStructureHeight();
+  limitMainMenuScrollabillity();
+};
 
 /**
  * Google Analytics

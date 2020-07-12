@@ -2,5 +2,10 @@
   "author": "Ricardo Azzi Silva",
   "location": "São Paulo",
   "title": "O mundo que você não viu - Teaser",
-  "subtitle": "Três primeiros capítulos do livro \"E Houve Guerra nos Céus\""
+  "subtitle": "Três primeiros capítulos do livro \"E Houve Guerra nos Céus\"",
+  "chapters": [
+    "a-queda-por-sago-duzur",
+    "alguns-nao-performam",
+    "iniciativa-grupo-tartaro"
+  ]
 }
