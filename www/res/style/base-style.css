@@ -320,6 +320,15 @@ article.postagem h3 {
   font-weight: normal;
 }
 
+.publication-data time {
+  font-style: italic;
+}
+
+.publication-data .last-edition:before {
+  content: "\B7";
+  margin: 0 4px;
+}
+
 /** Postagem como section **/
 section.postagem {
   padding: 1rem;

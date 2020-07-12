@@ -9,6 +9,9 @@ class BookChapter {
   static function getChapterHeadingMetaData($book, $chapter) {
     try {
       $chapterHeadingData = File::readJSON(BOOK_PATH . "$book/$chapter.json");
+      $fileData = (object) @stat(BOOK_PATH . "$book/$chapter.md");
+
+      $lastEditTime = $fileData && @$fileData->mtime ? $fileData->mtime : null;
     } catch (Exception $e) {
       return null;
     }
@@ -17,6 +20,14 @@ class BookChapter {
       return null;
     } elseif ($chapterHeadingData->publishedDate > time()) {
       return null;
+    } elseif ($lastEditTime === null) {
+      return null;
+    }
+
+    if ($lastEditTime > $chapterHeadingData->publishedDate) {
+      $chapterHeadingData->lastEditDate = $lastEditTime;
+    } else {
+      $chapterHeadingData->lastEditDate = null;
     }
     
     $chapterHeadingData->template = "article-head";
@@ -26,6 +37,8 @@ class BookChapter {
 
   static function getChapterMetaData($book, $chapter) {
     $chapterHeadingData = BookChapter::getChapterHeadingMetaData($book, $chapter);
+    $chapterFooterData = (object) array();
+    $chapterFooterData->template = "article-footer";
 
     try {
       $readme = File::readFile(BOOK_PATH . "$book/$chapter.md");
@@ -39,6 +52,7 @@ class BookChapter {
 
     $chapterMetadata = (new ReadmeReader())->interpret($readme);
     array_unshift($chapterMetadata, $chapterHeadingData);
+    array_push($chapterMetadata, $chapterFooterData);
 
     return $chapterMetadata;
   }
@@ -49,8 +63,7 @@ class BookChapter {
       BookChapter::renderNotFound();
       return;
     }
-    
-    echo "<article class=\"postagem\">";
+
     foreach ($chapterMetadata as $templateMetadata) {
       $articleTemplater = new RainTPL();
 
@@ -60,7 +73,6 @@ class BookChapter {
 
       $articleTemplater->draw($templateMetadata->template);
     }
-    echo "</article>";
   }
 
   static function renderNotFound() {
