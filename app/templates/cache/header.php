@@ -22,6 +22,12 @@
     gtag('config', 'UA-172157320-1');
   </script>
 
+  <link
+    rel="icon"
+    type="image/x-icon"
+    href="/favicon.ico"
+  >
+
   <!-- Styles -->
   <link
     rel="stylesheet"

@@ -2,6 +2,16 @@
 
 class WebSite {
   static function hasRedirectRegitred($path) {
+
+    $isHttp = $_SERVER["REQUEST_SCHEME"] === 'http';
+    $isProd = preg_match('/ehouveguerranosceus/', $_SERVER["REQUEST_URI"]);
+
+    if ($isHttp && $isProd) {
+      $redirectTo = "https://$_SERVER[SERVER_NAME]$_SERVER[REQUEST_URI]";
+      header("location: $redirectTo");
+      return true;
+    }
+
     $path = preg_replace('/^\/|\/$/', "", $path);
     $appConfig = File::readJSON(APP_BASE."app-config.json");
     $redirect = (array)$appConfig->redirect;
