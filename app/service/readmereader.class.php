@@ -4,7 +4,7 @@ class ReadmeReader {
 
   public function interpret($readmeContent) {
     $resultSet = array();
-    $currentHeading = $this->createHeadingObject();
+    $currentHeading = $this->createHeadedObject();
     $articleLines = explode("\n", str_replace("\r", "", $readmeContent));
     
     foreach ($articleLines as $line) {
@@ -16,21 +16,35 @@ class ReadmeReader {
 
       if ($this->isMdFigure($line)) {
         array_push($resultSet, $this->castFigureMdToFigureObject($line));
-        $currentHeading = $this->createHeadingObject();
+        $currentHeading = $this->createHeadedObject();
       } elseif ($this->isMdHeading($line)) {
         array_push($resultSet, $currentHeading);
-        $currentHeading = $this->createHeadingObject();
+        $currentHeading = $this->createHeadedObject();
         $currentHeading->title = $this->castHeadingMdToHeadingText($line);
       } else {
-        array_push($currentHeading->paragraphs, $line);
+        array_push($currentHeading->paragraphs, $this->castTextFormatation($line));
       }
     }
     
     array_push($resultSet, $currentHeading);
     return $resultSet;
   }
+
+  private function castTextFormatation($paragraph) {
+    $paragraph = $this->castMdFormatationToTag($paragraph, '\*\*\*', '<b><i>', '</i></b>');
+    $paragraph = $this->castMdFormatationToTag($paragraph, '\*\*', '<b>', '</b>');
+    $paragraph = $this->castMdFormatationToTag($paragraph, '\*', '<i>', '</i>');
+    $paragraph = $this->castMdFormatationToTag($paragraph, '_', '<i>', '</i>');
+
+    return $paragraph;
+  }
+
+  private function castMdFormatationToTag($paragraph, $mdSymbol, $tagOpen, $tagClose) {
+    $paragraph = preg_replace('/('.$mdSymbol.'\w*'.$mdSymbol.')/', "$tagOpen\$1$tagClose", $paragraph);
+    return preg_replace('/('.$mdSymbol.')/', '', $paragraph);
+  }
   
-  private function createHeadingObject() {
+  private function createHeadedObject() {
     $currentHeading = (object) array();
     $currentHeading->title = null;
     $currentHeading->paragraphs = array();
