@@ -6,7 +6,7 @@ class WebSite {
     $isHttp = $_SERVER["REQUEST_SCHEME"] === 'http';
     $isProd = preg_match('/ehouveguerranosceus/', $_SERVER["REQUEST_URI"]);
 
-    if ($isHttp && $isProd) {
+    if ($isHttp and $isProd) {
       $redirectTo = "https://$_SERVER[SERVER_NAME]$_SERVER[REQUEST_URI]";
       header("location: $redirectTo");
       return true;
@@ -35,7 +35,7 @@ class WebSite {
 
   function getPage($routeParams) {
     $pathParam = $routeParams->pathParam;
-    if ($pathParam->book && $pathParam->chapter) {
+    if ($pathParam->book and $pathParam->chapter) {
       BookChapter::render($pathParam->book, $pathParam->chapter);
     } elseif ($pathParam->book) {
       Book::render($pathParam->book);

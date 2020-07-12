@@ -21,6 +21,8 @@ class ReadmeReader {
         array_push($resultSet, $currentHeading);
         $currentHeading = $this->createHeadedObject();
         $currentHeading->title = $this->castHeadingMdToHeadingText($line);
+      } elseif ($this->isQuotationCite($line) or $this->isQuotation($line)) {
+        
       } else {
         array_push($currentHeading->paragraphs, $this->castTextFormatation($line));
       }
@@ -63,6 +65,14 @@ class ReadmeReader {
 
   private function isMdHeading($line) {
     return !!preg_match('/^\#/', $line);
+  }
+  
+  private function isQuotation($line) {
+    return !!preg_match('/^(\>)/', $line);
+  }
+
+  private function isQuotationCite($line) {
+    return !!preg_match('/^(\>\>)/', $line);
   }
 
   private function castFigureMdToFigureObject($line) {
