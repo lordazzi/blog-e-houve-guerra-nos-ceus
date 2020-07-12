@@ -21,8 +21,17 @@ class ReadmeReader {
         array_push($resultSet, $currentHeading);
         $currentHeading = $this->createHeadedObject();
         $currentHeading->title = $this->castHeadingMdToHeadingText($line);
-      } elseif ($this->isQuotationCite($line) or $this->isQuotation($line)) {
-        
+      } elseif ($this->isQuotationCite($line)) {
+        $currentHeading->cite = $this->cleanMdQuote($line);
+      } elseif ($this->isQuotation($line)) {
+        if ($currentHeading->template !== "article-quotation") {
+          array_push($resultSet, $currentHeading);
+          $currentHeading = $this->createHeadedObject();
+          $currentHeading->template = "article-quotation";
+          $currentHeading->cite = null;
+        }
+
+        array_push($currentHeading->paragraphs, $this->castTextFormatation($this->cleanMdQuote($line)));
       } else {
         array_push($currentHeading->paragraphs, $this->castTextFormatation($line));
       }
@@ -50,12 +59,16 @@ class ReadmeReader {
 
     return $paragraph;
   }
+
+  private function cleanMdQuote($line) {
+    return preg_replace('/(^\>(\>)?)/', '', $line);
+  }
   
   private function createHeadedObject() {
     $currentHeading = (object) array();
     $currentHeading->title = null;
     $currentHeading->paragraphs = array();
-    $currentHeading->template = "paragraphed";
+    $currentHeading->template = "article-paragraphed";
     return $currentHeading;
   }
 
@@ -77,7 +90,7 @@ class ReadmeReader {
 
   private function castFigureMdToFigureObject($line) {
     $figure = (object) array();
-    $figure->template = "figure";
+    $figure->template = "article-figure";
     $figure->caption = preg_replace('/(^\!\[|\].*$)/', "", $line);
     $figure->imagePath = preg_replace('/(^.*\(|\)$)/', "", $line);
 

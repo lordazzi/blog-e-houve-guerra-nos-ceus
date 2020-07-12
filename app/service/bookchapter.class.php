@@ -15,7 +15,7 @@ class BookChapter {
       $chapterHeadingData = File::readJSON(BOOK_PATH . "$book/$chapter.json");
       $fileData = (object) @stat(BOOK_PATH . "$book/$chapter.md");
 
-      $lastEditTime = $fileData and @$fileData->mtime ? $fileData->mtime : null;
+      $lastEditTime = $fileData && @$fileData->mtime ? $fileData->mtime : null;
     } catch (Exception $e) {
       return null;
     }

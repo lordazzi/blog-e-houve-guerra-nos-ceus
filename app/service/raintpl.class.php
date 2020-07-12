@@ -37,8 +37,8 @@ define( "TPL_EXT", "html" );
 class RainTPL{
 
 	public  $var = array(),
-			$tpl_dir = TEMPLATE_PATH,		// template directory
-			$cache_dir = TEMPLATE_CACHE_PATH,	// template cache/compile directory
+			$tpl_dir = "",		// template directory
+			$cache_dir = "",	// template cache/compile directory
 			$base_url = NULL;	// template var
 			
 	private $tpl = array(),				 // array of raintpl variables
@@ -98,7 +98,7 @@ class RainTPL{
 	function cache( $tpl_name, $expire_time = RAINTPL_CACHE_EXPIRE_TIME ){
 
 		$this->check_template( $tpl_name );
-		if( !$this->tpl['tpl_has_changed'] and file_exists( $this->tpl['static_cache_filename'] ) and ( time() - filemtime( $this->tpl['static_cache_filename'] ) < $expire_time ) )
+		if( !$this->tpl['tpl_has_changed'] && file_exists( $this->tpl['static_cache_filename'] ) && ( time() - filemtime( $this->tpl['static_cache_filename'] ) < $expire_time ) )
 			return substr( file_get_contents( $this->tpl['static_cache_filename'] ), 43 );
 		else{
 			//delete the cache of the selected template
@@ -121,13 +121,13 @@ class RainTPL{
 			$this->tpl['static_cache_filename'] = $this->tpl['cache_dir'] . $this->tpl['tpl_basename'] . '.s.php';				// static cache filename
 
 			// if the template doesn't exsist throw an error
-			if( RAINTPL_CHECK_TEMPLATE_UPDATE and !file_exists( $this->tpl['tpl_filename'] ) ){
+			if( RAINTPL_CHECK_TEMPLATE_UPDATE && !file_exists( $this->tpl['tpl_filename'] ) ){
 				trigger_error( 'Template '.$this->tpl['tpl_basename'].' not found!' );
 				return '<div style="background:#f8f8ff;border:1px solid #aaaaff;padding:10px;">Template <b>'.$this->tpl['tpl_basename'].'</b> not found</div>';
 			}
 
 			// file doesn't exsist, or the template was updated, Rain will compile the template
-			if( RAINTPL_CHECK_TEMPLATE_UPDATE and !file_exists( $this->tpl['cache_filename'] ) || filemtime($this->tpl['cache_filename']) < filemtime($this->tpl['tpl_filename']) ){
+			if( RAINTPL_CHECK_TEMPLATE_UPDATE && !file_exists( $this->tpl['cache_filename'] ) || filemtime($this->tpl['cache_filename']) < filemtime($this->tpl['tpl_filename']) ){
 				$this->compileFile( $this->tpl['tpl_basedir'], $this->tpl['tpl_filename'], $this->tpl['cache_dir'], $this->tpl['cache_filename'] );
 				$this->tpl['tpl_has_changed'] = TRUE;
 			}
@@ -197,7 +197,7 @@ class RainTPL{
 	 	while( $html = array_shift( $parsed_code ) ){
 
 	 		//close ignore tag
-	 		if( !$comment_is_open and preg_match( '/\{\/ignore\}/', $html ) )
+	 		if( !$comment_is_open && preg_match( '/\{\/ignore\}/', $html ) )
 	 			$ignore_is_open = FALSE;
 
 	 		//code between tag ignore id deleted
@@ -273,7 +273,7 @@ class RainTPL{
 				$value = "\$value$level";		// value
 				
 				//loop code
-				$compiled_code .=  "<?php $counter=-1; if( isset($var) and is_array($var) and sizeof($var) ) foreach( $var as $key => $value ){ $counter++; ?>";
+				$compiled_code .=  "<?php $counter=-1; if( isset($var) && is_array($var) && sizeof($var) ) foreach( $var as $key => $value ){ $counter++; ?>";
 
 			}
 
@@ -484,9 +484,9 @@ class RainTPL{
 
 			// compile the variable for php
 			if( isset( $function ) )
-				$php_var = $php_left_delimiter . ( !$is_init_variable and $echo ? 'echo ' : NULL ) . ( $params ? "( $function( $php_var, $params ) )" : "$function( $php_var )" ) . $php_right_delimiter;
+				$php_var = $php_left_delimiter . ( !$is_init_variable && $echo ? 'echo ' : NULL ) . ( $params ? "( $function( $php_var, $params ) )" : "$function( $php_var )" ) . $php_right_delimiter;
 			else
-				$php_var = $php_left_delimiter . ( !$is_init_variable and $echo ? 'echo ' : NULL ) . $php_var . $extra_var . $php_right_delimiter;
+				$php_var = $php_left_delimiter . ( !$is_init_variable && $echo ? 'echo ' : NULL ) . $php_var . $extra_var . $php_right_delimiter;
 
 			$html = str_replace( $tag, $php_var, $html );
 
