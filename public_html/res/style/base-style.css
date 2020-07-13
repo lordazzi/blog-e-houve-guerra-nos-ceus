@@ -257,6 +257,7 @@ a.is-icon {
   background: none;
   border: 0;
   outline: none;
+  cursor: pointer;
 }
 
 button[type].is-icon:hover,

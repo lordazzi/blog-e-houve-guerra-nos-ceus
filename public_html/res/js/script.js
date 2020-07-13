@@ -109,31 +109,46 @@ var SocialNetworkCheck = {
   facebook: function () {
     gtag('event', this.eventAction, {
       'event_category': this.category,
-      'event_label': 'Facebook'
+      'event_label': 'Facebook',
+      'event_callback': function () {
+        console.log('Gttag callback ' + SocialNetworkCheck.category + ': Facebook');
+      }
     });
   },
   twitter: function () {
     gtag('event', this.eventAction, {
       'event_category': this.category,
-      'event_label': 'Twitter'
+      'event_label': 'Twitter',
+      'event_callback': function () {
+        console.log('Gttag callback ' + SocialNetworkCheck.category + ': Twitter');
+      }
     });
   },
   youtube: function () {
     gtag('event', this.eventAction, {
       'event_category': this.category,
-      'event_label': 'Youtube'
+      'event_label': 'Youtube',
+      'event_callback': function () {
+        console.log('Gttag callback ' + SocialNetworkCheck.category + ': Youtube');
+      }
     });
   },
   reddit: function () {
     gtag('event', this.eventAction, {
       'event_category': this.category,
-      'event_label': 'Reddit'
+      'event_label': 'Reddit',
+      'event_callback': function () {
+        console.log('Gttag callback ' + SocialNetworkCheck.category + ': Reddit');
+      }
     });
   },
   github: function () {
     gtag('event', this.eventAction, {
       'event_category': this.category,
-      'event_label': 'Github'
+      'event_label': 'Github',
+      'event_callback': function () {
+        console.log('Gttag callback ' + SocialNetworkCheck.category + ': Github');
+      }
     });
   },
 };
@@ -146,25 +161,37 @@ var SocialNetworkShare = {
   facebook: function () {
     gtag('event', this.eventAction, {
       'event_category': this.category,
-      'event_label': 'Facebook'
+      'event_label': 'Facebook',
+      'event_callback': function () {
+        console.log('Gttag callback ' + SocialNetworkShare.category + ': Facebook');
+      }
     });
   },
   twitter: function () {
     gtag('event', this.eventAction, {
       'event_category': this.category,
-      'event_label': 'Twitter'
+      'event_label': 'Twitter',
+      'event_callback': function () {
+        console.log('Gttag callback ' + SocialNetworkShare.category + ': Twitter');
+      }
     });
   },
   whatsapp: function () {
     gtag('event', this.eventAction, {
       'event_category': this.category,
-      'event_label': 'Whatsapp'
+      'event_label': 'Whatsapp',
+      'event_callback': function () {
+        console.log('Gttag callback ' + SocialNetworkShare.category + ': Whatsapp');
+      }
     });
   },
   copy: function () {
     gtag('event', this.eventAction, {
       'event_category': this.category,
-      'event_label': 'Copy'
+      'event_label': 'Copy',
+      'event_callback': function () {
+        console.log('Gttag callback ' + SocialNetworkShare.category + ': Copy');
+      }
     });
   }
 };
