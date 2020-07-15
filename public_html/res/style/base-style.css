@@ -145,6 +145,10 @@ nav.sidebar-menu {
   transition: left .25s ease-in-out;
 }
 
+nav.sidebar-menu .menu-collapse {
+  display: none;
+}
+
 .is-main-menu-active nav.sidebar-menu {
   left: 0;
 }

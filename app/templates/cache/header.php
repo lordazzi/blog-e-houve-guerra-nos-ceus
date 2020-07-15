@@ -121,6 +121,10 @@
     id="main-menu"
     class="sidebar-menu"
   >
+    <button
+      onclick="toogleMainMenu()"
+      class="menu-collapse icofont-curved-right"
+    ></button>
     <?php $counter1=-1; if( isset($this->var['books']) && is_array($this->var['books']) && sizeof($this->var['books']) ) foreach( $this->var['books'] as $key1 => $value1 ){ $counter1++; ?>
     <?php $this->var['book']=$value1;?>
     <div class="submenu-heading">
