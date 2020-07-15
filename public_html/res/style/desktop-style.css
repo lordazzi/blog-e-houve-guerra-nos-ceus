@@ -8,9 +8,10 @@ header.main button.mainmenu-button {
 /** Sidebar menu **/
 nav.sidebar-menu {
   position: relative;
-  max-width: 25rem;
   float: left;
-  left: -370px;
+  left: 0px;
+  padding: 0;
+  max-width: 17px;
 }
 
 nav.sidebar-menu .menu-collapse {
@@ -32,7 +33,15 @@ nav.sidebar-menu .menu-collapse:before {
   font-size: 20pt;
   transform: rotate(0deg);
   display: block;
-  transition: transform .25s, left .25s;
+  transition: transform .25s, width .25s;
+}
+
+.is-main-menu-active nav.sidebar-menu {
+  max-width: 25rem;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 32px;
+  padding-top: 0px;
 }
 
 .is-main-menu-active nav.sidebar-menu .menu-collapse:before {
