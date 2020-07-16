@@ -2,18 +2,41 @@
 
 class BookChapter {
 
-  static function listArticles($page = 1) {
-    if ($page) {
-      return Book::getList();
+  private $bookName;
+  private $chapterName;
+
+  private $headingMetaData;
+  private $metaData;
+
+  private static $instances = array();
+
+  static function getInstance($bookName, $chapterName) {
+    $key = "$bookName-$chapterName";
+    if (!isset(self::$instances[$key])) {
+      self::$instances[$key] = new self($bookName, $chapterName);
     }
 
-    return null;
+    return self::$instances[$key];
   }
 
-  static function getChapterHeadingMetaData($book, $chapter) {
+  private function __construct($bookName, $chapterName) {
+    $this->bookName = $bookName;
+    $this->chapterName = $chapterName;
+  }
+
+  private function __destruct() {
+    $key = "$this->bookName-$this->chapterName";
+    unset(self::$instances[$key]);
+  }
+
+  function getChapterHeadingMetaData() {
+    if ($this->headingMetaData) {
+      return $this->headingMetaData;
+    }
+
     try {
-      $chapterHeadingData = File::readJSON(BOOK_PATH . "$book/$chapter.json");
-      $fileData = (object) @stat(BOOK_PATH . "$book/$chapter.md");
+      $chapterHeadingData = File::readJSON(BOOK_PATH . "$this->bookName/$this->chapterName.json");
+      $fileData = (object) @stat(BOOK_PATH . "$this->bookName/$this->chapterName.md");
 
       $lastEditTime = $fileData && @$fileData->mtime ? $fileData->mtime : null;
     } catch (Exception $e) {
@@ -33,14 +56,25 @@ class BookChapter {
     } else {
       $chapterHeadingData->lastEditDate = null;
     }
-    
+
+    $book = Book::getInstance($this->bookName);
+    $bookMetadata = $book->getBookHeadingMetaData();
+    $chapterHeadingData->bookName = $bookMetadata->title;
     $chapterHeadingData->template = "article-head";
-    $chapterHeadingData->path = $chapter;
+    $chapterHeadingData->path = $this->chapterName;
+    $chapterHeadingData->url = "/index.php/book/{$bookMetadata->path}/chapter/{$this->chapterName}/";
+
+    $this->headingMetaData = $chapterHeadingData;
     return $chapterHeadingData;
   }
 
-  static function getChapterMetaData($book, $chapter) {
-    $chapterHeadingData = BookChapter::getChapterHeadingMetaData($book, $chapter);
+  function getChapterMetaData($book, $chapter) {
+    if ($this->metaData) {
+      return $this->metaData;
+    }
+
+    $chapterHeadingData = $this->getChapterHeadingMetaData($book, $chapter);
+
     $chapterFooterData = (object) array();
     $chapterFooterData->template = "article-footer";
 
@@ -58,16 +92,19 @@ class BookChapter {
     array_unshift($chapterMetadata, $chapterHeadingData);
     array_push($chapterMetadata, $chapterFooterData);
 
+    $this->metaData = $chapterMetadata;
     return $chapterMetadata;
   }
 
-  static function render($book, $chapter) {
-    $chapterMetadata = BookChapter::getChapterMetaData($book, $chapter);
+  function render() {
+    $chapterHeadingData = $this->getChapterHeadingMetaData($this->bookName, $this->chapterName);
+    $chapterMetadata = $this->getChapterMetaData($this->bookName, $this->chapterName);
     if ($chapterMetadata === null) {
-      BookChapter::renderNotFound();
+      $this->renderNotFound();
       return;
     }
 
+    WebSite::drawHeader($chapterHeadingData);
     foreach ($chapterMetadata as $templateMetadata) {
       $articleTemplater = new RainTPL();
 
@@ -79,7 +116,7 @@ class BookChapter {
     }
   }
 
-  static function renderNotFound() {
+  private function renderNotFound() {
     (new RainTPL())->draw("not-found"); exit;
   }
 }

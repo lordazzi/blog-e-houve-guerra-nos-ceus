@@ -3,35 +3,34 @@
 
 <head>
 
-  <title>{title} - {bookName} - E Houve Guerra nos Céus</title>
+  <title><?php echo $this->var['metadata']->title;?> - <?php echo $this->var['metadata']->bookName;?> - E Houve Guerra nos Céus</title>
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
 
   <meta name="author" content="Ricardo Azzi Silva" >
   <meta name="robots" content="index, follow" >
-  <meta name="description" content="<?php echo $this->var['description'];?>" />
-  <meta name="keyworks" content="<?php $this->var['function']="implode($this->var['tags'], ",")";?>" />
+  <meta name="description" content="<?php echo $this->var['metadata']->description;?>" />
 
-  <meta property="og:title" content="<?php echo $this->var['title'];?>" />
-  <meta property="og:description" content="<?php echo $this->var['subtitle'];?>" />
-  <meta property="og:url" content="<?php echo $this->var['url'];?>" />
+  <meta property="og:title" content="<?php echo $this->var['metadata']->title;?>" />
+  <meta property="og:description" content="<?php echo $this->var['metadata']->subtitle;?>" />
+  <meta property="og:url" content="<?php echo $this->var['metadata']->url;?>" />
   <meta property="og:locale" content="pt_BR" />
 
   <?php if( $this->var['figure'] ){ ?>
-  <meta property="og:image" content="<?php echo $this->var['figure']->url;?>" />
-  <meta property="og:image:secure_url" content="<?php echo $this->var['figure']->url;?>" />
-  <meta property="og:image:type" content="<?php echo $this->var['figure']->mimeType;?>" />
-  <meta property="og:image:width" content="<?php echo $this->var['figure']->width;?>" />
-  <meta property="og:image:height" content="<?php echo $this->var['figure']->height;?>" />
+  <meta property="og:image" content="<?php echo $this->var['metadata']->figure->url;?>" />
+  <meta property="og:image:secure_url" content="<?php echo $this->var['metadata']->figure->url;?>" />
+  <meta property="og:image:type" content="<?php echo $this->var['metadata']->figure->mimeType;?>" />
+  <meta property="og:image:width" content="<?php echo $this->var['metadata']->figure->width;?>" />
+  <meta property="og:image:height" content="<?php echo $this->var['metadata']->figure->height;?>" />
   <?php } ?>
 
   <meta property="og:type" content="article" />
   <meta property="article:author" content="Ricardo Azzi Silva" />
-  <meta property="article:section" content="<?php echo $this->var['bookName'];?>" />
-  <meta property="article:tag" content="<?php echo implode($this->var['tags'], ","); ?>" />
-  <meta property="article:published_time" content="<?php echo date("Y-m-d", $this->var['publishedDate']); ?>T<?php echo date("H:i", $publishedDate)Z(); ?>" />
-  <meta property="article:modified_time" content="<?php echo date("Y-m-d", $this->var['lastEditDate']); ?>T<?php echo date("H:i", $lastEditDate)Z(); ?>" />
+  <meta property="article:section" content="<?php echo $this->var['metadata']->bookName;?>" />
+
+  <meta property="article:published_time" content="<?php echo date("Y-m-d", $this->var['metadata']->publishedDate); ?>T<?php echo date("H:i", $this->var['metadata']->publishedDate); ?>Z" />
+  <meta property="article:modified_time" content="<?php echo date("Y-m-d", $this->var['metadata']->lastEditDate); ?>T<?php echo date("H:i", $this->var['metadata']->lastEditDate); ?>Z" />
 
   <meta name="twitter:card" content="summary" />
   <meta name="twitter:site" content="@ehouveguerra" />
