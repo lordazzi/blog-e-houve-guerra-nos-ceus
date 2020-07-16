@@ -24,7 +24,7 @@ class BookChapter {
     $this->chapterName = $chapterName;
   }
 
-  private function __destruct() {
+  function __destruct() {
     $key = "$this->bookName-$this->chapterName";
     unset(self::$instances[$key]);
   }

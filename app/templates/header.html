@@ -10,14 +10,14 @@
 
   <meta name="author" content="Ricardo Azzi Silva" >
   <meta name="robots" content="index, follow" >
-  <meta name="description" content="{$metadata->description}" />
+  <!-- <meta name="description" content="{@$metadata->description}" /> -->
 
   <meta property="og:title" content="{$metadata->title}" />
   <meta property="og:description" content="{$metadata->subtitle}" />
   <meta property="og:url" content="{$metadata->url}" />
   <meta property="og:locale" content="pt_BR" />
 
-  {if="$figure"}
+  {if="@$figure"}
   <meta property="og:image" content="{$metadata->figure->url}" />
   <meta property="og:image:secure_url" content="{$metadata->figure->url}" />
   <meta property="og:image:type" content="{$metadata->figure->mimeType}" />

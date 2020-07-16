@@ -17,7 +17,7 @@
   <meta property="og:url" content="<?php echo $this->var['metadata']->url;?>" />
   <meta property="og:locale" content="pt_BR" />
 
-  <?php if( $this->var['figure'] ){ ?>
+  <?php if( @$this->var['figure'] ){ ?>
   <meta property="og:image" content="<?php echo $this->var['metadata']->figure->url;?>" />
   <meta property="og:image:secure_url" content="<?php echo $this->var['metadata']->figure->url;?>" />
   <meta property="og:image:type" content="<?php echo $this->var['metadata']->figure->mimeType;?>" />
