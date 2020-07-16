@@ -55,11 +55,9 @@ function limitMainMenuScrollabillity() {
     mainMenu.style.position = '';
   } else if (currentY > (mainFooterRec.top + scrollY)) {
     topPx = fixDecimal((mainFooterRec.top + scrollY) - mainMenuRec.height - mainHeaderRec.height) + 'px';
-    mainMenu.style.position = 'relative';
     mainMenu.style.top = topPx;
   } else if (currentY > endY) {
     topPx = fixDecimal(currentY - endY) + 'px';
-    mainMenu.style.position = 'relative';
     mainMenu.style.top = topPx;
   } else {
     mainMenu.style.position = '';

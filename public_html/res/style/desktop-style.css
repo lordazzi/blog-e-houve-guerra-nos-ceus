@@ -7,8 +7,44 @@ header.main button.mainmenu-button {
 /** ESTRUTURAS PRINCIPAIS **/
 /** Sidebar menu **/
 nav.sidebar-menu {
-  position: static;
-  max-width: 25rem;
+  position: relative;
   float: left;
-  left: 0;
+  left: 0px;
+  padding: 0;
+  max-width: 17px;
+}
+
+nav.sidebar-menu .menu-collapse {
+  border: none;
+  border-right: 5px solid var(--color-main-secondary);
+  background-color: var(--color-contrast-secondary);
+  height: 100%;
+  position: absolute;
+  right: 0px;
+  width: 1rem;
+  outline: none;
+  display: block;
+}
+
+nav.sidebar-menu .menu-collapse:before {
+  color: var(--color-main-secondary);
+  position: relative;
+  left: -12px;
+  font-size: 20pt;
+  transform: rotate(0deg);
+  display: block;
+  transition: transform .25s, width .25s;
+}
+
+.is-main-menu-active nav.sidebar-menu {
+  max-width: 25rem;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  padding-right: 32px;
+  padding-top: 0px;
+}
+
+.is-main-menu-active nav.sidebar-menu .menu-collapse:before {
+  left: 13px;
+  transform: rotate(180deg);
 }

@@ -1,7 +1,13 @@
 <figure>
-  <img
-    alt="{$caption}"
-    src="/image-archive/{$imagePath}"
-  >
+  <picture>
+    <source media="(min-width: 580px)" srcset="/image-archive/{$imagePath}/{$imagePath}-w530.jpg" />
+    <source media="(min-width: 500px)" srcset="/image-archive/{$imagePath}/{$imagePath}-w450.jpg" />
+    <source media="(min-width: 450px)" srcset="/image-archive/{$imagePath}/{$imagePath}-w400.jpg" />
+    <source media="(min-width: 400px)" srcset="/image-archive/{$imagePath}/{$imagePath}-w350.jpg" />
+    <source media="(min-width: 350px)" srcset="/image-archive/{$imagePath}/{$imagePath}-w300.jpg" />
+    <source media="(min-width: 300px)" srcset="/image-archive/{$imagePath}/{$imagePath}-w250.jpg" />
+
+    <img alt="{$caption}" src="/image-archive/{$imagePath}/{$imagePath}-w670.jpg" />
+  </picture>
   <figcaption>{$caption}</figcaption>
 </figure>

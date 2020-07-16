@@ -2,19 +2,42 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
-  />
 
-  <title>E Houve Guerra nos Céus</title>
+  <title><?php echo $this->var['metadata']->title;?> - <?php echo $this->var['metadata']->bookName;?> - E Houve Guerra nos Céus</title>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
+
+  <meta name="author" content="Ricardo Azzi Silva" >
+  <meta name="robots" content="index, follow" >
+  <meta name="description" content="<?php echo $this->var['metadata']->description;?>" />
+
+  <meta property="og:title" content="<?php echo $this->var['metadata']->title;?>" />
+  <meta property="og:description" content="<?php echo $this->var['metadata']->subtitle;?>" />
+  <meta property="og:url" content="<?php echo $this->var['metadata']->url;?>" />
+  <meta property="og:locale" content="pt_BR" />
+
+  <?php if( @$this->var['figure'] ){ ?>
+  <meta property="og:image" content="<?php echo $this->var['metadata']->figure->url;?>" />
+  <meta property="og:image:secure_url" content="<?php echo $this->var['metadata']->figure->url;?>" />
+  <meta property="og:image:type" content="<?php echo $this->var['metadata']->figure->mimeType;?>" />
+  <meta property="og:image:width" content="<?php echo $this->var['metadata']->figure->width;?>" />
+  <meta property="og:image:height" content="<?php echo $this->var['metadata']->figure->height;?>" />
+  <?php } ?>
+
+  <meta property="og:type" content="article" />
+  <meta property="article:author" content="Ricardo Azzi Silva" />
+  <meta property="article:section" content="<?php echo $this->var['metadata']->bookName;?>" />
+
+  <meta property="article:published_time" content="<?php echo date("Y-m-d", $this->var['metadata']->publishedDate); ?>T<?php echo date("H:i", $this->var['metadata']->publishedDate); ?>Z" />
+  <meta property="article:modified_time" content="<?php echo date("Y-m-d", $this->var['metadata']->lastEditDate); ?>T<?php echo date("H:i", $this->var['metadata']->lastEditDate); ?>Z" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@ehouveguerra" />
+  <meta name="twitter:creator" content="@fuckingazzi" />
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script
-    async
-    src="https://www.googletagmanager.com/gtag/js?id=UA-172157320-1"
-  ></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-172157320-1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag() { dataLayer.push(arguments); }
@@ -22,78 +45,23 @@
     gtag('config', 'UA-172157320-1');
   </script>
 
-  <link
-    rel="icon"
-    type="image/x-icon"
-    href="/favicon.ico"
-  >
+  <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
   <!-- Styles -->
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="/res/style/base-style.css"
-  >
-  <link
-    rel="stylesheet"
-    type="text/css"
-    media="(min-width:700px)"
-    href="/res/style/tablet-style.css"
-  >
-  <link
-    rel="stylesheet"
-    type="text/css"
-    media="(min-width:1000px)"
-    href="/res/style/desktop-style.css"
-  >
-  <link
-    rel="stylesheet"
-    type="text/css"
-    href="/res/fonts/IcoFont/icofont.min.css"
-  >
+  <link rel="stylesheet" type="text/css" href="/res/style/base-style.css" />
+  <link rel="stylesheet" type="text/css" media="(min-width:700px)" href="/res/style/tablet-style.css" />
+  <link rel="stylesheet" type="text/css" media="(min-width:1000px)" href="/res/style/desktop-style.css" />
+  <link rel="stylesheet" type="text/css" href="/res/fonts/IcoFont/icofont.min.css" />
 
   <!-- Fonts -->
-  <link
-    rel="preload"
-    as="font"
-    type="font/ttf"
-    href="/res/fonts/Aldrich/Aldrich-Regular.ttf"
-  >
-  <link
-    rel="preload"
-    as="font"
-    type="font/ttf"
-    href="/res/fonts/Teko/Teko-Bold.ttf"
-  >
-  <link
-    rel="preload"
-    as="font"
-    type="font/ttf"
-    href="/res/fonts/Markazi/MarkaziText-VariableFont_wght.ttf"
-  >
-  <link
-    rel="preload"
-    as="font"
-    type="font/ttf"
-    href="/res/fonts/Cuprum/Cuprum-Regular.ttf"
-  >
-  <link
-    rel="preload"
-    as="font"
-    type="font/eot"
-    href="/res/fonts/IcoFont/fonts/icofont.eot"
-  >
-  <link
-    rel="preload"
-    as="font"
-    type="font/ttf"
-    href="/res/fonts/IcoFont/fonts/icofont.ttf"
-  >
+  <link rel="preload" as="font" type="font/ttf" href="/res/fonts/Aldrich/Aldrich-Regular.ttf" />
+  <link rel="preload" as="font" type="font/ttf" href="/res/fonts/Teko/Teko-Bold.ttf" />
+  <link rel="preload" as="font" type="font/ttf" href="/res/fonts/Markazi/MarkaziText-VariableFont_wght.ttf" />
+  <link rel="preload" as="font" type="font/ttf" href="/res/fonts/Cuprum/Cuprum-Regular.ttf" />
+  <link rel="preload" as="font" type="font/eot" href="/res/fonts/IcoFont/fonts/icofont.eot" />
+  <link rel="preload" as="font" type="font/ttf" href="/res/fonts/IcoFont/fonts/icofont.ttf" />
 
-  <script
-    src="/res/js/script.js"
-    type="text/javascript"
-  ></script>
+  <script src="/res/js/script.js" type="text/javascript"></script>
 </head>
 
 <body>
@@ -121,6 +89,10 @@
     id="main-menu"
     class="sidebar-menu"
   >
+    <button
+      onclick="toogleMainMenu()"
+      class="menu-collapse icofont-curved-right"
+    ></button>
     <?php $counter1=-1; if( isset($this->var['books']) && is_array($this->var['books']) && sizeof($this->var['books']) ) foreach( $this->var['books'] as $key1 => $value1 ){ $counter1++; ?>
     <?php $this->var['book']=$value1;?>
     <div class="submenu-heading">
