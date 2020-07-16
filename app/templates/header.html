@@ -2,13 +2,37 @@
 <html lang="pt-br">
 
 <head>
-  <meta charset="utf-8" />
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0"
-  />
 
-  <title>E Houve Guerra nos Céus</title>
+  <title>{title} - {bookName} - E Houve Guerra nos Céus</title>
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
+
+  <meta name="author" content="Ricardo Azzi Silva" >
+  <meta name="robots" content="index, follow" >
+  <meta name="description" content="{description}" />
+  <meta name="keyworks" content="{function="implode($tags, ",")"}" />
+
+  <meta property="og:title" content="{title}" />
+  <meta property="og:url" content="{url}" />
+  <meta property="og:description" content="{subtitle}" />
+  <meta property="og:image" content="www.meusite.com.br/imagem.jpg" />
+  <meta property="og:image:secure_url" content="www.meusite.com.br/imagem.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="800" />
+  <meta property="og:image:height" content="600" />
+  <meta property="og:locale" content="pt_BR" />
+  <meta property="og:type" content="article" />
+
+  <meta property="article:author" content="Ricardo Azzi Silva" />
+  <meta property="article:section" content="{bookName}" />
+  <meta property="article:tag" content="{function="implode($tags, ",")"}" />
+  <meta property="article:published_time" content="{function="date("Y-m-d", $publishedDate)"}T{function="date("H:i", $publishedDate)Z"}" />
+  <meta property="article:modified_time" content="{function="date("Y-m-d", $lastEditDate)"}T{function="date("H:i", $lastEditDate)Z"}" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@ehouveguerra" />
+  <meta name="twitter:creator" content="@fuckingazzi" />
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script
