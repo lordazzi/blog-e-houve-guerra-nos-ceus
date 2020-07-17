@@ -10,16 +10,17 @@
 
   <meta name="author" content="Ricardo Azzi Silva" >
   <meta name="robots" content="index, follow" >
-  <meta name="description" content="<?php echo $this->var['metadata']->description;?>" />
+  <!-- <meta name="description" content="{@$metadata->description}" /> -->
 
-  <meta property="og:title" content="<?php echo $this->var['metadata']->title;?>" />
-  <meta property="og:description" content="<?php echo $this->var['metadata']->subtitle;?>" />
-  <meta property="og:url" content="<?php echo $this->var['metadata']->url;?>" />
+  <meta property="og:title" content="<?php echo str_replace('"', "&quot;", $this->var['metadata']->title); ?>" />
+  <meta property="og:description" content="<?php echo str_replace('"', "&quot;", $this->var['metadata']->subtitle); ?>" />
+  <meta property="og:url" content="<?php echo $this->var['metadata']->website;?><?php echo $this->var['metadata']->url;?>" />
   <meta property="og:locale" content="pt_BR" />
 
-  <?php if( @$this->var['figure'] ){ ?>
-  <meta property="og:image" content="<?php echo $this->var['metadata']->figure->url;?>" />
-  <meta property="og:image:secure_url" content="<?php echo $this->var['metadata']->figure->url;?>" />
+  <?php if( @$this->var['metadata']->figure ){ ?>
+  <meta property="og:image" content="<?php echo $this->var['metadata']->website;?><?php echo $this->var['metadata']->figure->url;?>" />
+  <meta property="og:image:secure_url" content="<?php echo $this->var['metadata']->website;?><?php echo $this->var['metadata']->figure->url;?>" />
+  <meta property="twitter:image" content="<?php echo $this->var['metadata']->website;?><?php echo $this->var['metadata']->figure->url;?>" />
   <meta property="og:image:type" content="<?php echo $this->var['metadata']->figure->mimeType;?>" />
   <meta property="og:image:width" content="<?php echo $this->var['metadata']->figure->width;?>" />
   <meta property="og:image:height" content="<?php echo $this->var['metadata']->figure->height;?>" />
@@ -32,7 +33,11 @@
   <meta property="article:published_time" content="<?php echo date("Y-m-d", $this->var['metadata']->publishedDate); ?>T<?php echo date("H:i", $this->var['metadata']->publishedDate); ?>Z" />
   <meta property="article:modified_time" content="<?php echo date("Y-m-d", $this->var['metadata']->lastEditDate); ?>T<?php echo date("H:i", $this->var['metadata']->lastEditDate); ?>Z" />
 
+  <?php if( @$this->var['metadata']->figure ){ ?>
+  <meta name="twitter:card" content="summary_large_image" />
+  <?php }else{ ?>
   <meta name="twitter:card" content="summary" />
+  <?php } ?>
   <meta name="twitter:site" content="@ehouveguerra" />
   <meta name="twitter:creator" content="@fuckingazzi" />
 
