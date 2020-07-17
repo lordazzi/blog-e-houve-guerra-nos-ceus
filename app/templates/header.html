@@ -14,12 +14,12 @@
 
   <meta property="og:title" content="{$metadata->title}" />
   <meta property="og:description" content="{$metadata->subtitle}" />
-  <meta property="og:url" content="{$metadata->url}" />
+  <meta property="og:url" content="{$metadata->website}{$metadata->url}" />
   <meta property="og:locale" content="pt_BR" />
 
-  {if="@$figure"}
-  <meta property="og:image" content="{$metadata->figure->url}" />
-  <meta property="og:image:secure_url" content="{$metadata->figure->url}" />
+  {if="@$metadata->figure"}
+  <meta property="og:image" content="{$metadata->website}{$metadata->figure->url}" />
+  <meta property="og:image:secure_url" content="{$metadata->website}{$metadata->figure->url}" />
   <meta property="og:image:type" content="{$metadata->figure->mimeType}" />
   <meta property="og:image:width" content="{$metadata->figure->width}" />
   <meta property="og:image:height" content="{$metadata->figure->height}" />

@@ -10,16 +10,16 @@
 
   <meta name="author" content="Ricardo Azzi Silva" >
   <meta name="robots" content="index, follow" >
-  <meta name="description" content="<?php echo $this->var['metadata']->description;?>" />
+  <!-- <meta name="description" content="{@$metadata->description}" /> -->
 
   <meta property="og:title" content="<?php echo $this->var['metadata']->title;?>" />
   <meta property="og:description" content="<?php echo $this->var['metadata']->subtitle;?>" />
-  <meta property="og:url" content="<?php echo $this->var['metadata']->url;?>" />
+  <meta property="og:url" content="<?php echo $this->var['metadata']->website;?><?php echo $this->var['metadata']->url;?>" />
   <meta property="og:locale" content="pt_BR" />
 
-  <?php if( @$this->var['figure'] ){ ?>
-  <meta property="og:image" content="<?php echo $this->var['metadata']->figure->url;?>" />
-  <meta property="og:image:secure_url" content="<?php echo $this->var['metadata']->figure->url;?>" />
+  <?php if( @$this->var['metadata']->figure ){ ?>
+  <meta property="og:image" content="<?php echo $this->var['metadata']->website;?><?php echo $this->var['metadata']->figure->url;?>" />
+  <meta property="og:image:secure_url" content="<?php echo $this->var['metadata']->website;?><?php echo $this->var['metadata']->figure->url;?>" />
   <meta property="og:image:type" content="<?php echo $this->var['metadata']->figure->mimeType;?>" />
   <meta property="og:image:width" content="<?php echo $this->var['metadata']->figure->width;?>" />
   <meta property="og:image:height" content="<?php echo $this->var['metadata']->figure->height;?>" />

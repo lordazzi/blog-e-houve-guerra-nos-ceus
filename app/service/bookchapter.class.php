@@ -61,8 +61,10 @@ class BookChapter {
     $bookMetadata = $book->getBookHeadingMetaData();
     $chapterHeadingData->bookName = $bookMetadata->title;
     $chapterHeadingData->template = "article-head";
+    $chapterHeadingData->website = "https://$_SERVER[HTTP_HOST]";
     $chapterHeadingData->path = $this->chapterName;
     $chapterHeadingData->url = "/index.php/book/{$bookMetadata->path}/chapter/{$this->chapterName}/";
+    $chapterHeadingData->figure = null;
 
     $this->headingMetaData = $chapterHeadingData;
     return $chapterHeadingData;
@@ -89,6 +91,21 @@ class BookChapter {
     }
 
     $chapterMetadata = (new ReadmeReader())->interpret($readme);
+
+    foreach ($chapterMetadata as $meta) {
+      if ($meta->template == "article-figure") {
+        $imageFullPath = getImageUrl($meta->imagePath);
+        $imageData = getimagesize(ARCHIVE_IMAGES_PATH.$imageFullPath);
+
+        $chapterHeadingData->figure = (object) array();
+        $chapterHeadingData->figure->url = "/$imageFullPath";
+        $chapterHeadingData->figure->mimeType = $imageData["mime"];
+        $chapterHeadingData->figure->width = $imageData[0];
+        $chapterHeadingData->figure->height = $imageData[1];
+        break;
+      }
+    }
+
     array_unshift($chapterMetadata, $chapterHeadingData);
     array_push($chapterMetadata, $chapterFooterData);
 
@@ -97,8 +114,8 @@ class BookChapter {
   }
 
   function render() {
-    $chapterHeadingData = $this->getChapterHeadingMetaData($this->bookName, $this->chapterName);
     $chapterMetadata = $this->getChapterMetaData($this->bookName, $this->chapterName);
+    $chapterHeadingData = $this->getChapterHeadingMetaData($this->bookName, $this->chapterName);
     if ($chapterMetadata === null) {
       $this->renderNotFound();
       return;
