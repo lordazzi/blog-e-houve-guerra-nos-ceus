@@ -95,7 +95,7 @@ class BookChapter {
     foreach ($chapterMetadata as $meta) {
       if ($meta->template == "article-figure") {
         $imageFullPath = getImageUrl($meta->imagePath);
-        $imageData = getimagesize(ARCHIVE_IMAGES_PATH.$imageFullPath);
+        $imageData = getimagesize(PUBLIC_FOLDER.'/'.$imageFullPath);
 
         $chapterHeadingData->figure = (object) array();
         $chapterHeadingData->figure->url = "/$imageFullPath";
