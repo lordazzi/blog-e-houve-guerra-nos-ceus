@@ -6,7 +6,7 @@ class ReadmeReader {
     $resultSet = array();
     $currentHeading = $this->createHeadedObject();
     $articleLines = explode("\n", str_replace("\r", "", $readmeContent));
-    
+
     foreach ($articleLines as $line) {
       $line = trim($line);
 
@@ -35,29 +35,28 @@ class ReadmeReader {
 
         array_push($currentHeading->paragraphs, $this->castTextFormatation($this->cleanMdQuote($line)));
       } else {
+        array_push($resultSet, $currentHeading);
+        $currentHeading = $this->createHeadedObject();
         array_push($currentHeading->paragraphs, $this->castTextFormatation($line));
       }
     }
-    
+
     array_push($resultSet, $currentHeading);
     return $resultSet;
   }
 
   private function castTextFormatation($paragraph) {
-    $paragraph = $this->castMdFormatationToTag($paragraph, '***', '<b><i>', '</i></b>');
-    $paragraph = $this->castMdFormatationToTag($paragraph, '**', '<b>', '</b>');
-    $paragraph = $this->castMdFormatationToTag($paragraph, '*', '<i>', '</i>');
-    $paragraph = $this->castMdFormatationToTag($paragraph, '_', '<i>', '</i>');
+    $paragraph = $this->castMdFormatationToTag($paragraph, '[*]{2}', '<b>', '</b>');
+    $paragraph = $this->castMdFormatationToTag($paragraph, '[*]{1}', '<i>', '</i>');
 
     return $paragraph;
   }
 
   private function castMdFormatationToTag($paragraph, $mdSymbol, $tagOpen, $tagClose) {
-    $escapedMdSymbol = preg_quote($mdSymbol, '<\\');
-
-    $paragraph = preg_replace('/('.$escapedMdSymbol.'\w*'.$escapedMdSymbol.')/', "$tagOpen\$1$tagClose", $paragraph);
-    $paragraph = str_replace($tagOpen.$mdSymbol, $tagOpen, $paragraph);
-    $paragraph = str_replace($mdSymbol.$tagClose, $tagClose, $paragraph);
+    $paragraph = preg_replace('/'.$mdSymbol.'([^*]*)'.$mdSymbol.'/', "$tagOpen\$1$tagClose", $paragraph);
+    // $paragraph = preg_replace('/'.$mdSymbol.'([^*_])*'.$mdSymbol.'/', "$tagOpen\$1$tagClose", $paragraph);
+    // $paragraph = str_replace($tagOpen.$mdSymbol, $tagOpen, $paragraph);
+    // $paragraph = str_replace($mdSymbol.$tagClose, $tagClose, $paragraph);
 
     return $paragraph;
   }
@@ -65,7 +64,7 @@ class ReadmeReader {
   private function cleanMdQuote($line) {
     return preg_replace('/(^\>(\>)?)/', '', $line);
   }
-  
+
   private function createHeadedObject() {
     $currentHeading = (object) array();
     $currentHeading->title = null;
@@ -81,7 +80,7 @@ class ReadmeReader {
   private function isMdHeading($line) {
     return !!preg_match('/^\#/', $line);
   }
-  
+
   private function isQuotation($line) {
     return !!preg_match('/^(\>)/', $line);
   }
