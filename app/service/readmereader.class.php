@@ -54,9 +54,6 @@ class ReadmeReader {
 
   private function castMdFormatationToTag($paragraph, $mdSymbol, $tagOpen, $tagClose) {
     $paragraph = preg_replace('/'.$mdSymbol.'([^*]*)'.$mdSymbol.'/', "$tagOpen\$1$tagClose", $paragraph);
-    // $paragraph = preg_replace('/'.$mdSymbol.'([^*_])*'.$mdSymbol.'/', "$tagOpen\$1$tagClose", $paragraph);
-    // $paragraph = str_replace($tagOpen.$mdSymbol, $tagOpen, $paragraph);
-    // $paragraph = str_replace($mdSymbol.$tagClose, $tagClose, $paragraph);
 
     return $paragraph;
   }
