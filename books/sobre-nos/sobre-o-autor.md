@@ -1,4 +1,4 @@
-![Ricardo Azzi Silva, autor de E Houve Guerra nos Céus](ricardo-azzi-silva)
+![Ricardo Azzi Silva, autor de E Houve Guerra nos Céus](ricardo-azzi-silva.jpg)
 O importante é que este universo seja imersivo e interessante, quem o escreveu e o concebeu não faz muita diferença. Entretanto, se sua curiosidade se estende até o nível de desejar saber quem é o autor, reservei este capítulo para falar de mim.
 
 # Ricardo Azzi Silva
@@ -15,7 +15,7 @@ Além dos artigos técnicos, costumo ler alguns livros, não tenho métricas alt
 # Cozinheiro
 É valido informar a respeito de meus talentos culinários. Aprendi a cozinhar com minha mãe e sempre que possível asso uma costela suína ou bovina de um jeito completamente novo (novo para mim ao menos). Em minha casa, estamos sempre vendo novas receitas, novos assados, novos molhos, novos legumes.
 
-![Macarrão, farofa e costelas. Uma mesa servida para alguns amigos que me visitaram](dotes-culinarios-do-azzi)
+![Macarrão, farofa e costelas. Uma mesa servida para alguns amigos que me visitaram](dotes-culinarios-do-azzi.jpg)
 
 # Vídeo Games
 Meu fiel amigo Play 4, melhor companheiro para se apreciar momentos de solitude e para conseguir se aliviar de um dia de trabalho, melhor do que isso, só se for acompanhado de uma cerveja. Jogo de The Witcher a The Sims, de Crash Badicoot a Euro Fishing, só não me obrigue a jogar futebol. Sou o grande fracasso em FPS Online e nunca me arrisquei a pisar num Battle Royale, exceto Worms Armageddon. O clássico que sempre estará em meu coração é Tactics Ogre, sou apaixonado por jogo no estilo rpg tático, estilo que infelizmente foi abandonado. #remakeTacticsOgre

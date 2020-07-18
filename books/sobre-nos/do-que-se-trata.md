@@ -1,4 +1,4 @@
-![Quadro Trindade, de Andrei Rublev. O quadro não tem relação direta com o projeto, na verdade nem indireta, mas eu precisava de uma imagem para a publicação.](quadro-trindade-de-andrei-rublev)
+![Quadro Trindade, de Andrei Rublev. O quadro não tem relação direta com o projeto, na verdade nem indireta, mas eu precisava de uma imagem para a publicação.](quadro-trindade-de-andrei-rublev.jpg)
 
 E Houve Guerra nos Céus é um livro de fantasia e ficção cientifica (ainda não lançado) escrito por Ricardo Azzi Silva (eu). Meu primeiro texto é de 2011. Nesta época eu ainda não tinha noção de como iria expor minha história, ainda não havia pensado na possibilidade de um livro.
 

@@ -1,4 +1,4 @@
-![Primeira impressão que fiz do livro, com o objetivo de fazer uma nova revisão, agora com caneta vermelha.](e-houve-guerra-primeira-impressao-para-revisao)
+![Primeira impressão que fiz do livro, com o objetivo de fazer uma nova revisão, agora com caneta vermelha.](e-houve-guerra-primeira-impressao-para-revisao.jpg)
 
 Construí este website com o objetivo de dar continuidade ao universo construído no livro. Pretendo dar continuidade ao E Houve Guerra nos Céus, um segundo livro, mas os textos que não forem pertinentes de serem incluídos neste novo livro, mas que fizerem parte deste universo, serão inclusos aqui.
 

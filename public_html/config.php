@@ -13,7 +13,7 @@ function __autoload($class) {
 	require_once(APP_BASE."service/$class.class.php");
 }
 
-function getImageUrl($imagePath, $size = 670) {
-  return "image-archive/{$imagePath}/{$imagePath}-w$size.jpg";
+function getImageUrl($imagePath) {
+  return "image-archive/{$imagePath}";
 }
 ?>

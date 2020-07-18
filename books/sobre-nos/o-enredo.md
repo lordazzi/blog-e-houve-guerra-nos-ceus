@@ -1,4 +1,4 @@
-![Leviatã, um primeiro, e Kraken, um marídeo, tomando uma cervejinha depois de um dia árduo de trabalho no governo do Planeta Leviatânico](leviata-bebendo-com-kraken)
+![Leviatã, um primeiro, e Kraken, um marídeo, tomando uma cervejinha depois de um dia árduo de trabalho no governo do Planeta Leviatânico](leviata-bebendo-com-kraken.jpg)
 
 Javé e Alicerces são *deuses*, sendo Javé o pai de Alicerces. Juntos criaram toda a existência e o tempo e mantém uma posição de autoridade que gera inveja no coração de alguns anjos.
 
@@ -7,7 +7,7 @@ Samael é o governador do Planeta das Árvores Flutuantes e, após o contato com
 **E Houve Guerra nos Céus** é um cânone composto por dez livros, alternando entre contos, dossiês, diários, profecias e filosofias. A trama tem Samael como personagem central, explorando suas aventuras e a forma como seus ideais foram construídos. O livro também reserva atenção passa a história de amizade de Leviatã e Kraken, o *primeiro* e *marídeo* inseparáveis.
 São sete as principais espécies sencientes deste universo, os *deuses*, os *primeiros*, *bestiais*, *marídeos*, *arvorídeos*, *megalons* e os *últimos*.
 
-![Canopus, um dos conselheiros de Micael, com a lança que recebeu de presente de Javé](canopus)
+![Canopus, um dos conselheiros de Micael, com a lança que recebeu de presente de Javé](canopus.jpg)
 
 # Os primeiros
 Os *primeiros* são monstros enormes de seis asas, seres praticamente indestrutíveis, criadas por Javé para regerem o universo. Foram criados no primeiro tempo da criação junto com o vazio do espaço e a matéria. Escolhi este nome para esta espécie por que ela seria o que chamamos de "arcanjo" e, considerando que arcanjo significa "primeiro anjo" ou "anjo principal". O primeiro arcanjo a ser criado, e o mais poderoso deles, é Micael, e por isso Micael é conhecido como O Arcanjo, por que entre os primeiros, ele é o primeiro.
