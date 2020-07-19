@@ -1,13 +1,6 @@
 <figure>
   <picture>
-    <source media="(min-width: 580px)" srcset="/image-archive/{function="getImageUrl($imagePath, 530)"}" />
-    <source media="(min-width: 500px)" srcset="/image-archive/{function="getImageUrl($imagePath, 450)"}" />
-    <source media="(min-width: 450px)" srcset="/image-archive/{function="getImageUrl($imagePath, 400)"}" />
-    <source media="(min-width: 400px)" srcset="/image-archive/{function="getImageUrl($imagePath, 350)"}" />
-    <source media="(min-width: 350px)" srcset="/image-archive/{function="getImageUrl($imagePath, 300)"}" />
-    <source media="(min-width: 300px)" srcset="/image-archive/{function="getImageUrl($imagePath, 250)"}" />
-
-    <img alt="{$caption}" src="/image-archive/{function="getImageUrl($imagePath, 670)"}" />
+    <img alt="{$caption}" src="/{function="getImageUrl($imagePath)"}" />
   </picture>
   <figcaption>{$caption}</figcaption>
 </figure>
