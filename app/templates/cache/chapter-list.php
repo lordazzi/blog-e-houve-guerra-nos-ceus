@@ -1,38 +1,19 @@
-<?php if(!class_exists('raintpl')){exit;}?><nav class="pagination">
+<?php if(!class_exists('raintpl')){exit;}?><?php if( @pages ){ ?>
+<nav class="pagination">
   <ul>
+    <?php $counter1=-1; if( isset($this->var['pages']) && is_array($this->var['pages']) && sizeof($this->var['pages']) ) foreach( $this->var['pages'] as $key1 => $value1 ){ $counter1++; ?>
     <li>
-      <!-- <a>1</a> -->
-      <a class="open-menu-icon icofont-curved-left"></a>
+      <a href="/?page=<?php echo $value1;?>"><?php echo $value1;?></a>
     </li>
-    <li>
-      <a>2</a>
-    </li>
-    <li>
-      <a>3</a>
-    </li>
-    <li>
-      <a>4</a>
-    </li>
-    <li>
-      <a>5</a>
-    </li>
-    <li>
-      <a>6</a>
-    </li>
-    <li>
-      <a>7</a>
-    </li>
-    <li>
-      <a>8</a>
-    </li>
-    <li>
-      <a>9</a>
-    </li>
-    <li>
+    <?php } ?>
+      <!-- <a class="open-menu-icon icofont-curved-left"></a> -->
+    <!-- <li>
       <a class="open-menu-icon icofont-curved-right"></a>
-    </li>
+    </li> -->
   </ul>
 </nav>
+<?php } ?>
+
 <?php $counter1=-1; if( isset($this->var['chapters']) && is_array($this->var['chapters']) && sizeof($this->var['chapters']) ) foreach( $this->var['chapters'] as $key1 => $value1 ){ $counter1++; ?>
 <section class="postagem">
   <div>
@@ -56,8 +37,22 @@
 <hr />
 <?php } ?>
 
+<?php if( @pages ){ ?>
+<nav class="pagination">
+  <ul>
+    <?php $counter1=-1; if( isset($this->var['pages']) && is_array($this->var['pages']) && sizeof($this->var['pages']) ) foreach( $this->var['pages'] as $key1 => $value1 ){ $counter1++; ?>
+    <li>
+      <a href="/?page=<?php echo $value1;?>"><?php echo $value1;?></a>
+    </li>
+    <?php } ?>
+      <!-- <a class="open-menu-icon icofont-curved-left"></a> -->
+    <!-- <li>
+      <a class="open-menu-icon icofont-curved-right"></a>
+    </li> -->
+  </ul>
+</nav>
+<?php } ?>
+
 1. Corrigir defeito da sobreposição do nome do autor e a localização para ambiente mobile
 2. Incluir dados de cabeçalho
-3. Incluir paginação
-4. Criar arquivo cache com ordenação, atualizar arquivo a cada novo artigo escrito
 5. Incluir botões para compartilhamento em redes sociais: facebook, twitter, whatsapp e native share

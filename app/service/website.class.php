@@ -52,7 +52,7 @@ class WebSite {
 
       $book->render();
     } else {
-      $chapters = BookChapter::listByPublishedDate();
+      $chapters = (new ApiArticleList())->get();
       $this->renderChapterList($chapters);
     }
   }
@@ -60,8 +60,21 @@ class WebSite {
   function renderChapterList($chapters) {
     WebSite::drawHeader((object) array());
 
+    $articlesPerPage = 10;
+    $pagesLength = ceil(count($chapters) / $articlesPerPage);
+    $pages = array();
+
+    if (count($pagesLength) <= 1) {
+      $pages = null;
+    } else {
+      for ($i = 0; $i < $pagesLength; $i++) {
+        array_push($pages, $i + 1);
+      }
+    }
+
     $chapterList = new RainTPL();
     $chapterList->assign("chapters", $chapters);
+    $chapterList->assign("pages", $pages);
     $chapterList->draw("chapter-list");
   }
 
