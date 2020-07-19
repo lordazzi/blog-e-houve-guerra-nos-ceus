@@ -1,0 +1,22 @@
+{loop="chapters"}
+<section class="postagem">
+  <div>
+    <a href="{$value->url}" class="heading-1-like">{$value->title}</a>
+    <a href="{$value->url}" class="heading-2-like">{$value->subtitle}</a>
+  </div>
+  {if="$value->figure"}
+  <a href="{$value->url}">
+    <figure>
+      <img src="{$value->figure->url}" />
+    </figure>
+  </a>
+  {/if}
+  <div class="publication-data">
+    <p class="publication-author">
+      {$value->author} <span class="publication-location"> - {$value->location}</span>
+    </p>
+    <time itemprop="datePublished"> {function="date("d/m/Y H:i", $value->publishedDate)"} </time>
+  </div>
+</section>
+<hr />
+{/loop}

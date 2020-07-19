@@ -1,6 +1,11 @@
 <?php
 
 class WebSite {
+
+  static function renderNotFound() {
+    (new RainTPL())->draw("not-found"); exit;
+  }
+
   static function drawHeader($metadata) {
     $headerHtml = new RainTPL();
     $headerHtml->assign("books", Book::getList());
@@ -38,10 +43,6 @@ class WebSite {
     $pathParam = $routeParams->pathParam;
     if (@$pathParam->book && @$pathParam->chapter) {
       $bookChapter = BookChapter::getInstance($pathParam->book, $pathParam->chapter);
-      if ($bookChapter == null) {
-        BookChapter::renderNotFound();
-      }
-
       $bookChapter->render();
     } elseif (@$pathParam->book) {
       $book = Book::getInstance($pathParam->book);
@@ -51,8 +52,17 @@ class WebSite {
 
       $book->render();
     } else {
-      echo json_encode(BookChapter::listByPublishedDate());
+      $chapters = BookChapter::listByPublishedDate();
+      $this->renderChapterList($chapters);
     }
+  }
+
+  function renderChapterList($chapters) {
+    WebSite::drawHeader((object) array());
+
+    $chapterList = new RainTPL();
+    $chapterList->assign("chapters", $chapters);
+    $chapterList->draw("chapter-list");
   }
 
   function __destruct() {

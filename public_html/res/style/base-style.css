@@ -5,12 +5,12 @@
   --color-gray-light: #eeeeee;
   --color-gray-dark: #585858;
   --color-black: #000000;
-  
+
   --color-main-primary: #fff; /*#4847b1;*/
   --color-main-secondary: #4847b1; /*#fe31aa*/
   --color-contrast-primary: #cc0000;
   --color-contrast-secondary: #fff;/*#c6ff01;*/
-  
+
   --color-main-secondary-dark: #42419e;
   --color-main-secondary-darkest: #34337c;
 
@@ -362,6 +362,7 @@ section.postagem .heading-1-like + .heading-2-like {
 
 section.postagem figure {
   margin-top: 2rem;
+  border: 1px solid #eee;
 }
 
 section.postagem .publication-data {

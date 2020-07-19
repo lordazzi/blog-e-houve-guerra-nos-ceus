@@ -134,7 +134,7 @@ class BookChapter {
     $chapterMetadata = $this->getChapterMetaData();
     $chapterHeadingData = $this->getChapterHeadingMetaData();
     if ($chapterMetadata === null) {
-      $this->renderNotFound();
+      WebSite::renderNotFound();
       return;
     }
 
@@ -148,9 +148,5 @@ class BookChapter {
 
       $articleTemplater->draw($templateMetadata->template);
     }
-  }
-
-  private function renderNotFound() {
-    (new RainTPL())->draw("not-found"); exit;
   }
 }
