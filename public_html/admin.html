@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Admin</title>
+
+    <meta name="robots" content="noindex, nofollow" />
+
+    <script>
+      function gerarCache() {
+        var xhr = new XMLHttpRequest();
+        xhr.open('PUT', '/api.php/articles/');
+        xhr.send();
+      }
+    </script>
+  </head>
+  <body>
+    <button onclick="gerarCache()">Gerar cache</button>
+  </body>
+</html>

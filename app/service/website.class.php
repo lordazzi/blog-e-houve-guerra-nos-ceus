@@ -16,7 +16,7 @@ class WebSite {
   static function hasRedirectRegitred($path) {
     //  redirect http to https in prod environment
     $isHttp = $_SERVER["REQUEST_SCHEME"] === 'http';
-    $isProd = preg_match('/ehouveguerranosceus/', $_SERVER["SERVER_NAME"]);
+    $isProd = isProd();
 
     if ($isHttp && $isProd) {
       $redirectTo = "https://$_SERVER[SERVER_NAME]$_SERVER[REQUEST_URI]";

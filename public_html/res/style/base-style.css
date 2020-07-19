@@ -372,3 +372,24 @@ section.postagem .publication-data {
 section.postagem ~ hr {
   display: none;
 }
+
+nav.pagination ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem 0;
+}
+
+nav.pagination ul li {
+  padding: 0;
+  margin: 0;
+}
+
+nav.pagination ul li a {
+  color: var(--color-contrast-primary);
+  font-family: Aldrich;
+  font-size: 11pt;
+  font-weight: bold;
+}

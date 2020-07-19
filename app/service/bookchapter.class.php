@@ -19,24 +19,6 @@ class BookChapter {
     return self::$instances[$key];
   }
 
-  static function listByPublishedDate() {
-    $books = Book::getList();
-    $chapters = array();
-
-    foreach ($books as $book) {
-      $bookMetadata = Book::getInstance($book->id)->getBookMetaData();
-      foreach($bookMetadata->chapters as $chapter) {
-        BookChapter::getInstance($book->id, $chapter->id)->getChapterMetaData();
-      }
-      $chapters = array_merge($chapters, $bookMetadata->chapters);
-    }
-
-
-    usort($chapters, function($a, $b) { return strcmp($b->publishedDate, $a->publishedDate);});
-
-    return $chapters;
-  }
-
   private function __construct($bookId, $chapterId) {
     $this->bookId = $bookId;
     $this->chapterId = $chapterId;
