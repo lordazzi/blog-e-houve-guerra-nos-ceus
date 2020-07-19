@@ -22,7 +22,7 @@ class WebSite {
     //  routes configured to redirect
     $path = preg_replace('/^\/|\/$/', "", $path);
     $path = $path === "" ? "index" : $path;
-    $appConfig = File::readJSON(APP_BASE."app-config.json");
+    $appConfig = File::readJSON(APP_BASE."application.json");
     $redirect = (array)$appConfig->redirect;
     $redirectTo = @$redirect[$path];
 
@@ -36,14 +36,22 @@ class WebSite {
 
   function getPage($routeParams) {
     $pathParam = $routeParams->pathParam;
-    if ($pathParam->book && $pathParam->chapter) {
+    if (@$pathParam->book && @$pathParam->chapter) {
       $bookChapter = BookChapter::getInstance($pathParam->book, $pathParam->chapter);
+      if ($bookChapter == null) {
+        BookChapter::renderNotFound();
+      }
+
       $bookChapter->render();
-    } elseif ($pathParam->book) {
+    } elseif (@$pathParam->book) {
       $book = Book::getInstance($pathParam->book);
+      if ($book == null) {
+        BookChapter::renderNotFound();
+      }
+
       $book->render();
     } else {
-      BookChapter::renderNotFound();
+      echo json_encode(BookChapter::listByPublishedDate());
     }
   }
 

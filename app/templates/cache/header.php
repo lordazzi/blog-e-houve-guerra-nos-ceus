@@ -106,7 +106,7 @@
     </div>
     <ul>
       <?php $counter2=-1; if( isset($value1->chapters) && is_array($value1->chapters) && sizeof($value1->chapters) ) foreach( $value1->chapters as $key2 => $value2 ){ $counter2++; ?>
-      <li><a href="/index.php/book/<?php echo $this->var['book']->path;?>/chapter/<?php echo $value2->path;?>/"><?php echo $value2->title;?></a></li>
+      <li><a href="/index.php/book/<?php echo $this->var['book']->id;?>/chapter/<?php echo $value2->id;?>/"><?php echo $value2->title;?></a></li>
       <?php } ?>
     </ul>
     <?php } ?>

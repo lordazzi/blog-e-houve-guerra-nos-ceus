@@ -2,30 +2,48 @@
 
 class BookChapter {
 
-  private $bookName;
-  private $chapterName;
+  private $bookId;
+  private $chapterId;
 
   private $headingMetaData;
   private $metaData;
 
   private static $instances = array();
 
-  static function getInstance($bookName, $chapterName) {
-    $key = "$bookName-$chapterName";
+  static function getInstance($bookId, $chapterId) {
+    $key = "$bookId-$chapterId";
     if (!isset(self::$instances[$key])) {
-      self::$instances[$key] = new self($bookName, $chapterName);
+      self::$instances[$key] = new self($bookId, $chapterId);
     }
 
     return self::$instances[$key];
   }
 
-  private function __construct($bookName, $chapterName) {
-    $this->bookName = $bookName;
-    $this->chapterName = $chapterName;
+  static function listByPublishedDate() {
+    $books = Book::getList();
+    $chapters = array();
+
+    foreach ($books as $book) {
+      $bookMetadata = Book::getInstance($book->id)->getBookMetaData();
+      foreach($bookMetadata->chapters as $chapter) {
+        BookChapter::getInstance($book->id, $chapter->id)->getChapterMetaData();
+      }
+      $chapters = array_merge($chapters, $bookMetadata->chapters);
+    }
+
+
+    usort($chapters, function($a, $b) { return strcmp($b->publishedDate, $a->publishedDate);});
+
+    return $chapters;
+  }
+
+  private function __construct($bookId, $chapterId) {
+    $this->bookId = $bookId;
+    $this->chapterId = $chapterId;
   }
 
   function __destruct() {
-    $key = "$this->bookName-$this->chapterName";
+    $key = "$this->bookId-$this->chapterId";
     unset(self::$instances[$key]);
   }
 
@@ -35,8 +53,8 @@ class BookChapter {
     }
 
     try {
-      $chapterHeadingData = File::readJSON(BOOK_PATH . "$this->bookName/$this->chapterName.json");
-      $fileData = (object) @stat(BOOK_PATH . "$this->bookName/$this->chapterName.md");
+      $chapterHeadingData = File::readJSON(BOOK_PATH . "$this->bookId/$this->chapterId.json");
+      $fileData = (object) @stat(BOOK_PATH . "$this->bookId/$this->chapterId.md");
 
       $lastEditTime = $fileData && @$fileData->mtime ? $fileData->mtime : null;
     } catch (Exception $e) {
@@ -57,31 +75,30 @@ class BookChapter {
       $chapterHeadingData->lastEditDate = null;
     }
 
-    $book = Book::getInstance($this->bookName);
+    $book = Book::getInstance($this->bookId);
     $bookMetadata = $book->getBookHeadingMetaData();
     $chapterHeadingData->bookName = $bookMetadata->title;
     $chapterHeadingData->template = "article-head";
     $chapterHeadingData->website = "https://$_SERVER[HTTP_HOST]";
-    $chapterHeadingData->path = $this->chapterName;
-    $chapterHeadingData->url = "/index.php/book/{$bookMetadata->path}/chapter/{$this->chapterName}/";
+    $chapterHeadingData->id = $this->chapterId;
+    $chapterHeadingData->url = "/index.php/book/{$bookMetadata->id}/chapter/{$this->chapterId}/";
     $chapterHeadingData->figure = null;
 
     $this->headingMetaData = $chapterHeadingData;
     return $chapterHeadingData;
   }
 
-  function getChapterMetaData($book, $chapter) {
+  function getChapterMetaData() {
     if ($this->metaData) {
       return $this->metaData;
     }
 
-    $chapterHeadingData = $this->getChapterHeadingMetaData($book, $chapter);
-
+    $chapterHeadingData = $this->getChapterHeadingMetaData($this->bookId, $this->chapterId);
     $chapterFooterData = (object) array();
     $chapterFooterData->template = "article-footer";
 
     try {
-      $readme = File::readFile(BOOK_PATH . "$book/$chapter.md");
+      $readme = File::readFile(BOOK_PATH . "$this->bookId/$this->chapterId.md");
     } catch (Exception $e) {
       return null;
     }
@@ -114,8 +131,8 @@ class BookChapter {
   }
 
   function render() {
-    $chapterMetadata = $this->getChapterMetaData($this->bookName, $this->chapterName);
-    $chapterHeadingData = $this->getChapterHeadingMetaData($this->bookName, $this->chapterName);
+    $chapterMetadata = $this->getChapterMetaData();
+    $chapterHeadingData = $this->getChapterHeadingMetaData();
     if ($chapterMetadata === null) {
       $this->renderNotFound();
       return;
