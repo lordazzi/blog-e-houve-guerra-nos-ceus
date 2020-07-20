@@ -3,6 +3,7 @@
 date_default_timezone_set("America/Sao_Paulo");
 
 define("APP_BASE", "$_SERVER[DOCUMENT_ROOT]/../app/");
+define("DATA_CACHE", APP_BASE."/data-cache/");
 define("BOOK_PATH", "$_SERVER[DOCUMENT_ROOT]/../books/");
 define("PUBLIC_FOLDER", "$_SERVER[DOCUMENT_ROOT]");
 define("TEMPLATE_PATH", APP_BASE."templates/");
@@ -16,4 +17,9 @@ function __autoload($class) {
 function getImageUrl($imagePath) {
   return "image-archive/{$imagePath}";
 }
+
+function isProd() {
+  return !!preg_match('/ehouveguerranosceus/', $_SERVER["SERVER_NAME"]);
+}
+
 ?>

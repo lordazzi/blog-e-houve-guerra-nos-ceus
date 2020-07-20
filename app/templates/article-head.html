@@ -8,8 +8,43 @@
     >por {$author} <span class="publication-location"> - {$location}</span></p>
     <time itemprop="datePublished"> {function="date("d/m/Y H:i", $publishedDate)"} </time>
     {if="$lastEditDate"}
-    <time class="last-edition"> última edição {function="date("d/m/Y H:i", $lastEditDate)"} </time>
+    <time class="last-edition"> edição {function="date("d/m/Y H:i", $lastEditDate)"} </time>
     {/if}
   </div>
 
+  <hr />
+  <div class="share-this-article">Compartilhe</div>
+  <div class="social-network">
+    <a
+      rel="noopener noreferrer"
+      onclick="SocialNetworkShare.facebook()"
+      href="https://www.facebook.com/dialog/share?href={function="urlencode($website)"}{function="urlencode($url)"}&app_id=1994565347343864"
+      target="_blank"
+      class="is-icon icofont-facebook"
+    ></a>
+    <a
+      rel="noopener noreferrer"
+      onclick="SocialNetworkShare.twitter()"
+      href="https://twitter.com/intent/tweet?hashtags=EHouveGuerraNosCeus&original_referer={function="urlencode($website)"}{function="urlencode($url)"}&text={function="urlencode($website)"}{function="urlencode($url)"}"
+      target="_blank"
+      class="is-icon icofont-twitter"
+    ></a>
+    <a
+      rel="noopener noreferrer"
+      onclick="SocialNetworkShare.whastapp()"
+      href="https://wa.me/?text={function="urlencode($website)"}{function="urlencode($url)"}"
+      target="_blank"
+      class="is-icon icofont-brand-whatsapp"
+    ></a>
+    <a
+      rel="noopener noreferrer mobile-sharable"
+      data-share-title="{function="str_replace('"', "&quot;", $title)"}"
+      data-share-text="{function="str_replace('"', "&quot;", $subtitle)"}"
+      data-share-url="{function="urlencode($website)"}{function="urlencode($url)"}"
+      onclick="SocialNetworkShare.share()"
+      target="_blank"
+      style="display:none"
+      class="is-icon icofont-share"
+    ></a>
+  </div>
   <hr />

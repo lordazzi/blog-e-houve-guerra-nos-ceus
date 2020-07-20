@@ -5,12 +5,12 @@
   --color-gray-light: #eeeeee;
   --color-gray-dark: #585858;
   --color-black: #000000;
-  
+
   --color-main-primary: #fff; /*#4847b1;*/
   --color-main-secondary: #4847b1; /*#fe31aa*/
   --color-contrast-primary: #cc0000;
   --color-contrast-secondary: #fff;/*#c6ff01;*/
-  
+
   --color-main-secondary-dark: #42419e;
   --color-main-secondary-darkest: #34337c;
 
@@ -78,7 +78,7 @@ figure {
 figure figcaption {
   font-weight: normal;
   color: var(--color-gray-dark);
-  font-size: 16pt;
+  font-size: 14pt;
   text-align: center;
 }
 
@@ -199,14 +199,17 @@ footer.main {
   padding: 1rem 0;
 }
 
-footer.main .social-network {
+.social-network {
   display: flex;
   justify-content: space-around;
+}
+
+footer.main .social-network {
   padding: 2rem .5rem .5rem .5rem;
 }
 
-footer.main .social-network > * {
-  font-size: 23pt;
+.social-network > * {
+  font-size: 20pt;
 }
 
 footer.main .contact {
@@ -305,16 +308,24 @@ article.postagem h3 {
   margin: 2.5rem 0 -0.25rem 0;
 }
 
+article.postagem .share-this-article {
+  font-family: 'Aldrich';
+  color: var(--color-contrast-primary);
+  font-size: 9pt;
+  font-weight: bolder;
+  margin: 9pt 0;
+  text-align: center;
+}
+
 /** Postagem, publication data **/
 .publication-data {
-  margin-top: 3rem;
+  margin-top: 2rem;
   color: var(--color-gray-dark);
 }
 
 .publication-data > * {
   font-size: 13pt;
   margin: 0;
-  line-height: 0.1;
   padding: 0
 }
 
@@ -362,6 +373,7 @@ section.postagem .heading-1-like + .heading-2-like {
 
 section.postagem figure {
   margin-top: 2rem;
+  border: 1px solid #eee;
 }
 
 section.postagem .publication-data {
@@ -370,4 +382,30 @@ section.postagem .publication-data {
 
 section.postagem ~ hr {
   display: none;
+}
+
+nav.pagination ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  margin: 1rem 0;
+}
+
+nav.pagination ul li {
+  padding: 0;
+  margin: 0;
+}
+
+nav.pagination ul li a {
+  color: var(--color-contrast-primary);
+  font-family: Aldrich;
+  font-size: 11pt;
+  font-weight: bold;
+}
+
+.facebook-wrapper {
+  position: absolute;
+  left: -100px;
 }

@@ -3,13 +3,17 @@
 
 <head>
 
+  {if="@$metadata->bookName"}
   <title>{$metadata->title} - {$metadata->bookName} - E Houve Guerra nos Céus</title>
+  {else}
+  <title>{$metadata->title} - E Houve Guerra nos Céus</title>
+  {/if}
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
 
-  <meta name="author" content="Ricardo Azzi Silva" >
-  <meta name="robots" content="index, follow" >
+  <meta name="author" content="Ricardo Azzi Silva" />
+  <meta name="robots" content="index, follow" />
   <!-- <meta name="description" content="{@$metadata->description}" /> -->
 
   <meta property="og:title" content="{function="str_replace('"', "&quot;", $metadata->title)"}" />
@@ -26,12 +30,14 @@
   <meta property="og:image:height" content="{$metadata->figure->height}" />
   {/if}
 
+  {if="@$metadata->isArticle"}
   <meta property="og:type" content="article" />
   <meta property="article:author" content="Ricardo Azzi Silva" />
   <meta property="article:section" content="{$metadata->bookName}" />
 
   <meta property="article:published_time" content="{function="date("Y-m-d", $metadata->publishedDate)"}T{function="date("H:i", $metadata->publishedDate)"}Z" />
   <meta property="article:modified_time" content="{function="date("Y-m-d", $metadata->lastEditDate)"}T{function="date("H:i", $metadata->lastEditDate)"}Z" />
+  {/if}
 
   {if="@$metadata->figure"}
   <meta name="twitter:card" content="summary_large_image" />
@@ -106,7 +112,7 @@
     </div>
     <ul>
       {loop="$value->chapters"}
-      <li><a href="/index.php/book/{$book->path}/chapter/{$value->path}/">{$value->title}</a></li>
+      <li><a href="/index.php/book/{$book->id}/chapter/{$value->id}/">{$value->title}</a></li>
       {/loop}
     </ul>
     {/loop}

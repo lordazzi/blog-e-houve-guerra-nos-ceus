@@ -1,6 +1,11 @@
 <?php
 
 class WebSite {
+
+  static function renderNotFound() {
+    (new RainTPL())->draw("not-found"); exit;
+  }
+
   static function drawHeader($metadata) {
     $headerHtml = new RainTPL();
     $headerHtml->assign("books", Book::getList());
@@ -11,7 +16,7 @@ class WebSite {
   static function hasRedirectRegitred($path) {
     //  redirect http to https in prod environment
     $isHttp = $_SERVER["REQUEST_SCHEME"] === 'http';
-    $isProd = preg_match('/ehouveguerranosceus/', $_SERVER["SERVER_NAME"]);
+    $isProd = isProd();
 
     if ($isHttp && $isProd) {
       $redirectTo = "https://$_SERVER[SERVER_NAME]$_SERVER[REQUEST_URI]";
@@ -22,7 +27,7 @@ class WebSite {
     //  routes configured to redirect
     $path = preg_replace('/^\/|\/$/', "", $path);
     $path = $path === "" ? "index" : $path;
-    $appConfig = File::readJSON(APP_BASE."app-config.json");
+    $appConfig = File::readJSON(APP_BASE."application.json");
     $redirect = (array)$appConfig->redirect;
     $redirectTo = @$redirect[$path];
 
@@ -36,15 +41,46 @@ class WebSite {
 
   function getPage($routeParams) {
     $pathParam = $routeParams->pathParam;
-    if ($pathParam->book && $pathParam->chapter) {
+    if (@$pathParam->book && @$pathParam->chapter) {
       $bookChapter = BookChapter::getInstance($pathParam->book, $pathParam->chapter);
       $bookChapter->render();
-    } elseif ($pathParam->book) {
+    } elseif (@$pathParam->book) {
       $book = Book::getInstance($pathParam->book);
+      if ($book == null) {
+        BookChapter::renderNotFound();
+      }
+
       $book->render();
     } else {
-      BookChapter::renderNotFound();
+      $chapters = (new ApiArticleList())->get();
+      $this->renderChapterList($chapters);
     }
+  }
+
+  function renderChapterList($chapters) {
+    WebSite::drawHeader((object) array(
+      "title" => "Escritos recentes",
+      "subtitle" => "Os artigos mais recentes lançados no site",
+      "website" => "https://$_SERVER[HTTP_HOST]",
+      "url" => "/",
+    ));
+
+    $articlesPerPage = 10;
+    $pagesLength = ceil(count($chapters) / $articlesPerPage);
+    $pages = array();
+
+    if ($pagesLength <= 1) {
+      $pages = false;
+    } else {
+      for ($i = 0; $i < $pagesLength; $i++) {
+        array_push($pages, $i + 1);
+      }
+    }
+
+    $chapterList = new RainTPL();
+    $chapterList->assign("chapters", $chapters);
+    $chapterList->assign("pages", $pages);
+    $chapterList->draw("chapter-list");
   }
 
   function __destruct() {

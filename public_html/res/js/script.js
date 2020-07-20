@@ -65,6 +65,27 @@ function limitMainMenuScrollabillity() {
   }
 }
 
+function listenSharableButton() {
+  if (!navigator.share) {
+    return;
+  }
+
+  var els = document.querySelectorAll('.mobile-sharable');
+  for (let i = 0; i < els.length; i++) {
+    var el = els[i];
+    el.style.display = 'block';
+    el.addEventListener('onclick', function(){ mobileShare(el); });
+  }
+}
+
+function mobileShare(el) {
+  navigator.share({
+    title: el.getAttribute('data-share-title'),
+    text: el.getAttribute('data-share-text'),
+    url: el.getAttribute('data-share-url')
+  });
+}
+
 function getTimestamp(h, i, d, m, y) {
   var date = new Date();
   h = h == null ? date.getUTCHours() : h;
@@ -89,7 +110,10 @@ try {
 
 }
 
-window.onload = updateMainStructureHeight;
+window.onload = function(){
+  updateMainStructureHeight();
+  listenSharableButton();
+};
 window.onscroll = limitMainMenuScrollabillity;
 window.onresize = function () {
   updateMainStructureHeight();
@@ -183,12 +207,12 @@ var SocialNetworkShare = {
       }
     });
   },
-  copy: function () {
+  share: function () {
     gtag('event', this.eventAction, {
       'event_category': this.category,
-      'event_label': 'Copy',
+      'event_label': 'Share',
       'event_callback': function () {
-        console.log('Gttag callback ' + SocialNetworkShare.category + ': Copy');
+        console.log('Gttag callback ' + SocialNetworkShare.category + ': Share');
       }
     });
   }

@@ -2,27 +2,27 @@
 
 class Book {
 
-  private $bookName;
+  private $bookId;
 
   private $headingMetaData;
   private $metaData;
 
   private static $instances = array();
 
-  static function getInstance($bookName) {
-    if (!isset(self::$instances[$bookName])) {
-      self::$instances[$bookName] = new self($bookName);
+  static function getInstance($bookId) {
+    if (!isset(self::$instances[$bookId])) {
+      self::$instances[$bookId] = new self($bookId);
     }
 
-    return self::$instances[$bookName];
+    return self::$instances[$bookId];
   }
 
-  private function __construct($bookName) {
-    $this->bookName = $bookName;
+  private function __construct($bookId) {
+    $this->bookId = $bookId;
   }
 
   function __destruct() {
-    unset(self::$instances[$this->bookName]);
+    unset(self::$instances[$this->bookId]);
   }
 
   static function getList() {
@@ -39,9 +39,9 @@ class Book {
   }
 
   function getBookHeadingMetaData() {
-    $bookMetaData = File::readJSON(BOOK_PATH."/$this->bookName/$this->bookName.json");
-    $bookMetaData->path = $this->bookName;
-    $bookMetaData->url = "/index.php/book/{$bookMetaData->path}/";
+    $bookMetaData = File::readJSON(BOOK_PATH."/$this->bookId/$this->bookId.json");
+    $bookMetaData->id = $this->bookId;
+    $bookMetaData->url = "/index.php/book/{$bookMetaData->id}/";
 
     $this->headingMetaData = $bookMetaData;
     return $bookMetaData;
@@ -53,7 +53,7 @@ class Book {
 
     foreach ($bookMetaData->chapters as $chapter) {
       //  check if chapter is published
-      $bookChapter = BookChapter::getInstance($this->bookName, $chapter);
+      $bookChapter = BookChapter::getInstance($this->bookId, $chapter);
       $chapterMetaData = $bookChapter->getChapterHeadingMetaData();
       if ($chapterMetaData !== null) {
         array_push($chapters, $chapterMetaData);

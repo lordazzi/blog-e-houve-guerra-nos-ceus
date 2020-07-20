@@ -3,13 +3,17 @@
 
 <head>
 
+  <?php if( @$this->var['metadata']->bookName ){ ?>
   <title><?php echo $this->var['metadata']->title;?> - <?php echo $this->var['metadata']->bookName;?> - E Houve Guerra nos Céus</title>
+  <?php }else{ ?>
+  <title><?php echo $this->var['metadata']->title;?> - E Houve Guerra nos Céus</title>
+  <?php } ?>
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
 
-  <meta name="author" content="Ricardo Azzi Silva" >
-  <meta name="robots" content="index, follow" >
+  <meta name="author" content="Ricardo Azzi Silva" />
+  <meta name="robots" content="index, follow" />
   <!-- <meta name="description" content="{@$metadata->description}" /> -->
 
   <meta property="og:title" content="<?php echo str_replace('"', "&quot;", $this->var['metadata']->title); ?>" />
@@ -26,12 +30,14 @@
   <meta property="og:image:height" content="<?php echo $this->var['metadata']->figure->height;?>" />
   <?php } ?>
 
+  <?php if( @$this->var['metadata']->isArticle ){ ?>
   <meta property="og:type" content="article" />
   <meta property="article:author" content="Ricardo Azzi Silva" />
   <meta property="article:section" content="<?php echo $this->var['metadata']->bookName;?>" />
 
   <meta property="article:published_time" content="<?php echo date("Y-m-d", $this->var['metadata']->publishedDate); ?>T<?php echo date("H:i", $this->var['metadata']->publishedDate); ?>Z" />
   <meta property="article:modified_time" content="<?php echo date("Y-m-d", $this->var['metadata']->lastEditDate); ?>T<?php echo date("H:i", $this->var['metadata']->lastEditDate); ?>Z" />
+  <?php } ?>
 
   <?php if( @$this->var['metadata']->figure ){ ?>
   <meta name="twitter:card" content="summary_large_image" />
@@ -106,7 +112,7 @@
     </div>
     <ul>
       <?php $counter2=-1; if( isset($value1->chapters) && is_array($value1->chapters) && sizeof($value1->chapters) ) foreach( $value1->chapters as $key2 => $value2 ){ $counter2++; ?>
-      <li><a href="/index.php/book/<?php echo $this->var['book']->path;?>/chapter/<?php echo $value2->path;?>/"><?php echo $value2->title;?></a></li>
+      <li><a href="/index.php/book/<?php echo $this->var['book']->id;?>/chapter/<?php echo $value2->id;?>/"><?php echo $value2->title;?></a></li>
       <?php } ?>
     </ul>
     <?php } ?>
