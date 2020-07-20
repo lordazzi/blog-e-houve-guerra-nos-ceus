@@ -58,14 +58,19 @@ class WebSite {
   }
 
   function renderChapterList($chapters) {
-    WebSite::drawHeader((object) array());
+    WebSite::drawHeader((object) array(
+      "title" => "Escritos recentes",
+      "subtitle" => "Os artigos mais recentes lançados no site",
+      "website" => "https://$_SERVER[HTTP_HOST]",
+      "url" => "/",
+    ));
 
     $articlesPerPage = 10;
     $pagesLength = ceil(count($chapters) / $articlesPerPage);
     $pages = array();
 
-    if (count($pagesLength) <= 1) {
-      $pages = null;
+    if ($pagesLength <= 1) {
+      $pages = false;
     } else {
       for ($i = 0; $i < $pagesLength; $i++) {
         array_push($pages, $i + 1);

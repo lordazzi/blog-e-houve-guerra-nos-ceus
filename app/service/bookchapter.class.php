@@ -65,6 +65,7 @@ class BookChapter {
     $chapterHeadingData->id = $this->chapterId;
     $chapterHeadingData->url = "/index.php/book/{$bookMetadata->id}/chapter/{$this->chapterId}/";
     $chapterHeadingData->figure = null;
+    $chapterHeadingData->isArticle = true;
 
     $this->headingMetaData = $chapterHeadingData;
     return $chapterHeadingData;

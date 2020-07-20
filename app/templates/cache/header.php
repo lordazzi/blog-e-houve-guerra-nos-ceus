@@ -3,7 +3,11 @@
 
 <head>
 
+  <?php if( @$this->var['metadata']->bookName ){ ?>
   <title><?php echo $this->var['metadata']->title;?> - <?php echo $this->var['metadata']->bookName;?> - E Houve Guerra nos Céus</title>
+  <?php }else{ ?>
+  <title><?php echo $this->var['metadata']->title;?> - E Houve Guerra nos Céus</title>
+  <?php } ?>
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
@@ -26,12 +30,14 @@
   <meta property="og:image:height" content="<?php echo $this->var['metadata']->figure->height;?>" />
   <?php } ?>
 
+  <?php if( @$this->var['metadata']->isArticle ){ ?>
   <meta property="og:type" content="article" />
   <meta property="article:author" content="Ricardo Azzi Silva" />
   <meta property="article:section" content="<?php echo $this->var['metadata']->bookName;?>" />
 
   <meta property="article:published_time" content="<?php echo date("Y-m-d", $this->var['metadata']->publishedDate); ?>T<?php echo date("H:i", $this->var['metadata']->publishedDate); ?>Z" />
   <meta property="article:modified_time" content="<?php echo date("Y-m-d", $this->var['metadata']->lastEditDate); ?>T<?php echo date("H:i", $this->var['metadata']->lastEditDate); ?>Z" />
+  <?php } ?>
 
   <?php if( @$this->var['metadata']->figure ){ ?>
   <meta name="twitter:card" content="summary_large_image" />

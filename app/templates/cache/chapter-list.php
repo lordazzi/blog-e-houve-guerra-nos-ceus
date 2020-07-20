@@ -1,4 +1,4 @@
-<?php if(!class_exists('raintpl')){exit;}?><?php if( @pages ){ ?>
+<?php if(!class_exists('raintpl')){exit;}?><?php if( pages ){ ?>
 <nav class="pagination">
   <ul>
     <?php $counter1=-1; if( isset($this->var['pages']) && is_array($this->var['pages']) && sizeof($this->var['pages']) ) foreach( $this->var['pages'] as $key1 => $value1 ){ $counter1++; ?>
@@ -37,7 +37,7 @@
 <hr />
 <?php } ?>
 
-<?php if( @pages ){ ?>
+<?php if( $this->var['pages'] ){ ?>
 <nav class="pagination">
   <ul>
     <?php $counter1=-1; if( isset($this->var['pages']) && is_array($this->var['pages']) && sizeof($this->var['pages']) ) foreach( $this->var['pages'] as $key1 => $value1 ){ $counter1++; ?>
@@ -53,6 +53,5 @@
 </nav>
 <?php } ?>
 
-1. Corrigir defeito da sobreposição do nome do autor e a localização para ambiente mobile
 2. Incluir dados de cabeçalho
 5. Incluir botões para compartilhamento em redes sociais: facebook, twitter, whatsapp e native share

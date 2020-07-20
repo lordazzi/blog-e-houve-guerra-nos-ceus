@@ -3,7 +3,11 @@
 
 <head>
 
+  {if="@$metadata->bookName"}
   <title>{$metadata->title} - {$metadata->bookName} - E Houve Guerra nos Céus</title>
+  {else}
+  <title>{$metadata->title} - E Houve Guerra nos Céus</title>
+  {/if}
 
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,user-scalable=0" />
@@ -26,12 +30,14 @@
   <meta property="og:image:height" content="{$metadata->figure->height}" />
   {/if}
 
+  {if="@$metadata->isArticle"}
   <meta property="og:type" content="article" />
   <meta property="article:author" content="Ricardo Azzi Silva" />
   <meta property="article:section" content="{$metadata->bookName}" />
 
   <meta property="article:published_time" content="{function="date("Y-m-d", $metadata->publishedDate)"}T{function="date("H:i", $metadata->publishedDate)"}Z" />
   <meta property="article:modified_time" content="{function="date("Y-m-d", $metadata->lastEditDate)"}T{function="date("H:i", $metadata->lastEditDate)"}Z" />
+  {/if}
 
   {if="@$metadata->figure"}
   <meta name="twitter:card" content="summary_large_image" />
