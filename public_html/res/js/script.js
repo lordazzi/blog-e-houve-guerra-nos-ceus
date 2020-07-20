@@ -183,12 +183,12 @@ var SocialNetworkShare = {
       }
     });
   },
-  copy: function () {
+  share: function () {
     gtag('event', this.eventAction, {
       'event_category': this.category,
-      'event_label': 'Copy',
+      'event_label': 'Share',
       'event_callback': function () {
-        console.log('Gttag callback ' + SocialNetworkShare.category + ': Copy');
+        console.log('Gttag callback ' + SocialNetworkShare.category + ': Share');
       }
     });
   }

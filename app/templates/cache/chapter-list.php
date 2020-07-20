@@ -1,4 +1,4 @@
-<?php if(!class_exists('raintpl')){exit;}?><?php if( pages ){ ?>
+<?php if(!class_exists('raintpl')){exit;}?><?php if( $this->var['pages'] ){ ?>
 <nav class="pagination">
   <ul>
     <?php $counter1=-1; if( isset($this->var['pages']) && is_array($this->var['pages']) && sizeof($this->var['pages']) ) foreach( $this->var['pages'] as $key1 => $value1 ){ $counter1++; ?>
@@ -52,6 +52,3 @@
   </ul>
 </nav>
 <?php } ?>
-
-2. Incluir dados de cabeçalho
-5. Incluir botões para compartilhamento em redes sociais: facebook, twitter, whatsapp e native share

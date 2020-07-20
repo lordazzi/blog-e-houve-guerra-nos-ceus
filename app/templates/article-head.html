@@ -1,3 +1,20 @@
+<div class="facebook-wrapper">
+  <div id="fb-root"></div>
+  <button
+    id="facebook-share"
+    class="fb-share-button"
+    data-href="https://ehouveguerranosceus.com.br/index.php/article/do-que-se-trata/"
+    data-layout="button_count"
+  ></button>
+  <script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+  fjs.parentNode.insertBefore(js, fjs);
+  }(document, 'script', 'facebook-jssdk'));</script>
+</div>
+
 <article class="postagem">
   <h1 itemprop="headline">{$title}</h1>
   <h2 itemprop="alternativeHeadline">{$subtitle}</h2>
@@ -8,8 +25,41 @@
     >por {$author} <span class="publication-location"> - {$location}</span></p>
     <time itemprop="datePublished"> {function="date("d/m/Y H:i", $publishedDate)"} </time>
     {if="$lastEditDate"}
-    <time class="last-edition"> última edição {function="date("d/m/Y H:i", $lastEditDate)"} </time>
+    <time class="last-edition"> edição {function="date("d/m/Y H:i", $lastEditDate)"} </time>
     {/if}
   </div>
 
+  <hr />
+  <div class="share-this-article">Compartilhe</div>
+  <div class="social-network">
+    <label for="facebook-share">
+      <a
+        rel="noopener noreferrer"
+        onclick="SocialNetworkShare.facebook()"
+        target="_blank"
+        class="is-icon icofont-facebook"
+      ></a>
+    </label>
+    <a
+      rel="noopener noreferrer"
+      onclick="SocialNetworkShare.twitter()"
+      href="https://twitter.com/ehouveguerra"
+      target="_blank"
+      class="is-icon icofont-twitter"
+    ></a>
+    <a
+      rel="noopener noreferrer"
+      onclick="SocialNetworkShare.whastapp()"
+      href="https://github.com/lordazzi/website-e-houve-guerra-nos-ceus"
+      target="_blank"
+      class="is-icon icofont-brand-whatsapp"
+    ></a>
+    <a
+      rel="noopener noreferrer"
+      onclick="SocialNetworkShare.share()"
+      href="https://github.com/lordazzi/website-e-houve-guerra-nos-ceus"
+      target="_blank"
+      class="is-icon icofont-share"
+    ></a>
+  </div>
   <hr />

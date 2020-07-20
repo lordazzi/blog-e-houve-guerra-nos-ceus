@@ -78,7 +78,7 @@ figure {
 figure figcaption {
   font-weight: normal;
   color: var(--color-gray-dark);
-  font-size: 16pt;
+  font-size: 14pt;
   text-align: center;
 }
 
@@ -199,14 +199,17 @@ footer.main {
   padding: 1rem 0;
 }
 
-footer.main .social-network {
+.social-network {
   display: flex;
   justify-content: space-around;
+}
+
+footer.main .social-network {
   padding: 2rem .5rem .5rem .5rem;
 }
 
-footer.main .social-network > * {
-  font-size: 23pt;
+.social-network > * {
+  font-size: 20pt;
 }
 
 footer.main .contact {
@@ -305,9 +308,18 @@ article.postagem h3 {
   margin: 2.5rem 0 -0.25rem 0;
 }
 
+article.postagem .share-this-article {
+  font-family: 'Aldrich';
+  color: var(--color-contrast-primary);
+  font-size: 9pt;
+  font-weight: bolder;
+  margin: 9pt 0;
+  text-align: center;
+}
+
 /** Postagem, publication data **/
 .publication-data {
-  margin-top: 3rem;
+  margin-top: 2rem;
   color: var(--color-gray-dark);
 }
 
@@ -391,4 +403,9 @@ nav.pagination ul li a {
   font-family: Aldrich;
   font-size: 11pt;
   font-weight: bold;
+}
+
+.facebook-wrapper {
+  position: absolute;
+  left: -100px;
 }
