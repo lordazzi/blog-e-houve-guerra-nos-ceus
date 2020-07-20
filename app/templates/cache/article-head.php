@@ -1,21 +1,4 @@
-<?php if(!class_exists('raintpl')){exit;}?><div class="facebook-wrapper">
-  <div id="fb-root"></div>
-  <button
-    id="facebook-share"
-    class="fb-share-button"
-    data-href="https://ehouveguerranosceus.com.br/index.php/article/do-que-se-trata/"
-    data-layout="button_count"
-  ></button>
-  <script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
-  fjs.parentNode.insertBefore(js, fjs);
-  }(document, 'script', 'facebook-jssdk'));</script>
-</div>
-
-<article class="postagem">
+<?php if(!class_exists('raintpl')){exit;}?><article class="postagem">
   <h1 itemprop="headline"><?php echo $this->var['title'];?></h1>
   <h2 itemprop="alternativeHeadline"><?php echo $this->var['subtitle'];?></h2>
   <div class="publication-data">
@@ -32,33 +15,35 @@
   <hr />
   <div class="share-this-article">Compartilhe</div>
   <div class="social-network">
-    <label for="facebook-share">
-      <a
-        rel="noopener noreferrer"
-        onclick="SocialNetworkShare.facebook()"
-        target="_blank"
-        class="is-icon icofont-facebook"
-      ></a>
-    </label>
+    <a
+      rel="noopener noreferrer"
+      onclick="SocialNetworkShare.facebook()"
+      href="https://www.facebook.com/dialog/share?href={encodedUrl}&app_id=1994565347343864"
+      target="_blank"
+      class="is-icon icofont-facebook"
+    ></a>
     <a
       rel="noopener noreferrer"
       onclick="SocialNetworkShare.twitter()"
-      href="https://twitter.com/ehouveguerra"
+      href="https://twitter.com/intent/tweet?hashtags=EHouveGuerraNosCeus&original_referer={encodedUrl}&text={encodedUrl}"
       target="_blank"
       class="is-icon icofont-twitter"
     ></a>
     <a
       rel="noopener noreferrer"
       onclick="SocialNetworkShare.whastapp()"
-      href="https://github.com/lordazzi/website-e-houve-guerra-nos-ceus"
+      href="https://wa.me/?text={encodedUrl}"
       target="_blank"
       class="is-icon icofont-brand-whatsapp"
     ></a>
     <a
-      rel="noopener noreferrer"
+      rel="noopener noreferrer mobile-sharable"
+      data-share-title="<?php echo str_replace('"', "&quot;", $this->var['title']); ?>"
+      data-share-text="<?php echo str_replace('"', "&quot;", $this->var['subtitle']); ?>"
+      data-share-url="{encodedUrl}"
       onclick="SocialNetworkShare.share()"
-      href="https://github.com/lordazzi/website-e-houve-guerra-nos-ceus"
       target="_blank"
+      style="display:none"
       class="is-icon icofont-share"
     ></a>
   </div>
