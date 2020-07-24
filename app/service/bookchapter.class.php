@@ -76,7 +76,7 @@ class BookChapter {
       return $this->metaData;
     }
 
-    $chapterHeadingData = $this->getChapterHeadingMetaData($this->bookId, $this->chapterId);
+    $chapterHeadingData = $this->getChapterHeadingMetaData();
     $chapterFooterData = (object) array();
     $chapterFooterData->template = "article-footer";
 
@@ -118,7 +118,7 @@ class BookChapter {
     $chapterHeadingData = $this->getChapterHeadingMetaData();
     if ($chapterMetadata === null) {
       WebSite::renderNotFound();
-      return;
+      return false;
     }
 
     WebSite::drawHeader($chapterHeadingData);
@@ -131,5 +131,7 @@ class BookChapter {
 
       $articleTemplater->draw($templateMetadata->template);
     }
+
+    return true;
   }
 }
