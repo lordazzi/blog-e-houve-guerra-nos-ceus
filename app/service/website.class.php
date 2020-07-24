@@ -59,7 +59,7 @@ class WebSite {
 
   function renderChapterList($chapters) {
     WebSite::drawHeader((object) array(
-      "title" => "Recentes",
+      "title" => null,
       "subtitle" => "Os artigos mais recentes lançados no site",
       "website" => "https://$_SERVER[HTTP_HOST]",
       "url" => "/",
