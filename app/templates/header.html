@@ -111,7 +111,7 @@
     {loop="$books"}
     {$book=$value}
     <div class="submenu-heading">
-      <h3 title="{$book->title}">{$book->title}</h3>
+      <a href="/index.php/book/{$book->id}/"><h3 title="{$book->title}">{$book->title}</h3></a>
       <span class="open-menu-icon icofont-curved-right"></span>
     </div>
     <ul>

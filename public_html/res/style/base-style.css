@@ -168,13 +168,18 @@ nav.sidebar-menu .submenu-heading {
   width: 100%;
 }
 
-nav.sidebar-menu h3 {
+nav.sidebar-menu a h3 {
   font-size: 18pt;
   white-space: nowrap;
   text-overflow: ellipsis;
   display: inline-block;
   width: calc(100% - 25px);
   overflow: hidden;
+  color: var(--color-contrast-secondary);
+}
+
+nav.sidebar-menu a:hover h3 {
+  text-decoration: underline;
 }
 
 nav.sidebar-menu .open-menu-icon {

@@ -111,7 +111,7 @@
     <?php $counter1=-1; if( isset($this->var['books']) && is_array($this->var['books']) && sizeof($this->var['books']) ) foreach( $this->var['books'] as $key1 => $value1 ){ $counter1++; ?>
     <?php $this->var['book']=$value1;?>
     <div class="submenu-heading">
-      <h3 title="<?php echo $this->var['book']->title;?>"><?php echo $this->var['book']->title;?></h3>
+      <a href="/index.php/book/<?php echo $this->var['book']->id;?>/"><h3 title="<?php echo $this->var['book']->title;?>"><?php echo $this->var['book']->title;?></h3></a>
       <span class="open-menu-icon icofont-curved-right"></span>
     </div>
     <ul>
