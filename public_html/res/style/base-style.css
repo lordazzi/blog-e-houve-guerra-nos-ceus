@@ -6,13 +6,16 @@
   --color-gray-dark: #585858;
   --color-black: #000000;
 
-  --color-main-primary: #fff; /*#4847b1;*/
-  --color-main-secondary: #4847b1; /*#fe31aa*/
+  --color-main-primary: #fff;
+  --color-main-secondary: #4847b1;
   --color-contrast-primary: #cc0000;
-  --color-contrast-secondary: #fff;/*#c6ff01;*/
+  --color-contrast-secondary: #fff;
 
   --color-main-secondary-dark: #42419e;
   --color-main-secondary-darkest: #34337c;
+
+  --color-contrast-primary-dark: #AA0000;
+  --color-contrast-primary-darkest: #A60000;
 
   --size-width: 700px;
 }
@@ -57,17 +60,17 @@ button {
 a {
   font-size: 13pt;
   text-decoration: none;
-  color: var(--color-main-secondary);
+  color: var(--color-contrast-primary);
   font-family: 'Aldrich';
 }
 
 a:focus {
-  color: var(--color-main-secondary-dark);
+  color: var(--color-contrast-primary-dark);
   text-decoration: underline;
 }
 
 a:active {
-  color: var(--color-main-secondary-darkest);
+  color: var(--color-contrast-primary-darkest);
   text-decoration: underline;
 }
 
@@ -405,7 +408,16 @@ nav.pagination ul li a {
   font-weight: bold;
 }
 
-.facebook-wrapper {
-  position: absolute;
-  left: -100px;
+ol.book-chapters-list li {
+  margin: .5rem;
+}
+
+ol.book-chapters-list li a {
+  font-weight: bolder;
+}
+
+ol.book-chapters-list li a:hover,
+ol.book-chapters-list li a:active {
+  font-weight: bolder;
+  text-decoration: underline;
 }

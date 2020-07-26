@@ -6,7 +6,11 @@
   <?php if( @$this->var['metadata']->bookName ){ ?>
   <title><?php echo $this->var['metadata']->title;?> - <?php echo $this->var['metadata']->bookName;?> - E Houve Guerra nos Céus</title>
   <?php }else{ ?>
-  <title><?php echo $this->var['metadata']->title;?> - E Houve Guerra nos Céus</title>
+    <?php if( @$this->var['metadata']->title ){ ?>
+    <title><?php echo $this->var['metadata']->title;?> - E Houve Guerra nos Céus</title>
+    <?php }else{ ?>
+    <title>E Houve Guerra nos Céus</title>
+    <?php } ?>
   <?php } ?>
 
   <meta charset="utf-8" />
@@ -14,7 +18,7 @@
 
   <meta name="author" content="Ricardo Azzi Silva" />
   <meta name="robots" content="index, follow" />
-  <!-- <meta name="description" content="{@$metadata->description}" /> -->
+  <meta name="description" content="A ficção cientifica da guerra dos anjos e demônios: os que são a favor do governo central de Javé, e os que exigem serem reconhecidos como deuses e sagrados" />
 
   <meta property="og:title" content="<?php echo str_replace('"', "&quot;", $this->var['metadata']->title); ?>" />
   <meta property="og:description" content="<?php echo str_replace('"', "&quot;", $this->var['metadata']->subtitle); ?>" />
