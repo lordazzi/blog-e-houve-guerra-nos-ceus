@@ -19,6 +19,7 @@
   <meta name="author" content="Ricardo Azzi Silva" />
   <meta name="robots" content="index, follow" />
   <meta name="description" content="A ficção cientifica da guerra dos anjos e demônios: os que são a favor do governo central de Javé, e os que exigem serem reconhecidos como deuses e sagrados" />
+  <meta name="keywords" content="<?php if( @$this->var['metadata']->tags ){ ?><?php echo implode(',', $this->var['metadata']->tags); ?><?php } ?>, guerra, batalha, anjos, fantasia, ficção, ficção científica, javé, samael, leviatã, kraken"/>
 
   <meta property="og:title" content="<?php echo str_replace('"', "&quot;", $this->var['metadata']->title); ?>" />
   <meta property="og:description" content="<?php echo str_replace('"', "&quot;", $this->var['metadata']->subtitle); ?>" />

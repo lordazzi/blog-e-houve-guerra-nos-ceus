@@ -3,7 +3,9 @@
 class WebSite {
 
   static function renderNotFound() {
-    (new RainTPL())->draw("not-found"); exit;
+    http_response_code(404);
+    (new RainTPL())->draw("not-found");
+    exit;
   }
 
   static function drawHeader($metadata) {
@@ -51,10 +53,14 @@ class WebSite {
       }
 
       $book->render();
-    } else {
+    } else if (!count(get_object_vars($routeParams->pathParam))) {
       $chapters = (new ApiArticleList())->get();
       $this->renderChapterList($chapters);
+    } else {
+      Website::renderNotFound();
     }
+
+    $this->drawFooter();
   }
 
   function renderChapterList($chapters) {
@@ -83,7 +89,7 @@ class WebSite {
     $chapterList->draw("chapter-list");
   }
 
-  function __destruct() {
+  function drawFooter() {
     $headerHtml = new RainTPL();
     $headerHtml->draw("footer");
   }
