@@ -7,10 +7,6 @@ class ApiArticleList {
   }
 
   function update() {
-    if (isProd()) {
-      return $this->get();
-    }
-
     $books = Book::getList();
     $chapters = array();
 

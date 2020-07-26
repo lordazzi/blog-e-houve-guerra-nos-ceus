@@ -38,6 +38,17 @@ class Book {
     return $booksMetaData;
   }
 
+  function render() {
+    $bookChapter = BookChapter::getInstance($this->bookId, $this->bookId);
+    $bookChapter->render();
+    $chapters = $this->getBookMetaData()->chapters;
+
+    $bookChapters = new RainTPL();
+    $bookChapters->assign("chapters", $chapters);
+    $bookChapters->draw("book");
+
+  }
+
   function getBookHeadingMetaData() {
     $bookMetaData = File::readJSON(BOOK_PATH."/$this->bookId/$this->bookId.json");
     $bookMetaData->id = $this->bookId;
