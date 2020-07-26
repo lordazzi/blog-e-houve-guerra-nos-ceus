@@ -14,7 +14,7 @@
   --color-main-secondary-dark: #42419e;
   --color-main-secondary-darkest: #34337c;
 
-  --color-contrast-primary-dark: #AA0000;
+  --color-contrast-primary-dark: #AF0000;
   --color-contrast-primary-darkest: #A60000;
 
   --size-width: 700px;
@@ -64,7 +64,13 @@ a {
   font-family: 'Aldrich';
 }
 
-a:focus {
+a[disabled], a[disabled]:hover, a[disabled]:active {
+  color: var(--color-gray-dark);
+  cursor: default;
+  text-decoration: none;
+}
+
+a:hover {
   color: var(--color-contrast-primary-dark);
   text-decoration: underline;
 }
@@ -406,6 +412,15 @@ nav.pagination ul li a {
   font-family: Aldrich;
   font-size: 11pt;
   font-weight: bold;
+}
+
+nav.chapters-navigation {
+  display: flex;
+  justify-content: space-between;
+}
+
+nav.chapters-navigation > a {
+  font-size: 10pt;
 }
 
 ol.book-chapters-list li {

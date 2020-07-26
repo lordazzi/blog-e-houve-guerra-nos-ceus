@@ -59,7 +59,23 @@ class BookChapter {
 
     $book = Book::getInstance($this->bookId);
     $bookMetadata = $book->getBookHeadingMetaData();
+
+    $previousChapter = null;
+    $nextChapter = null;
+
+    $index = array_search($this->chapterId, $bookMetadata->chapters);
+    if ($index > 0) {
+      $previousChapter = $bookMetadata->chapters[$index - 1];
+    }
+
+    if ($index < (count($bookMetadata->chapters) - 1)) {
+      $nextChapter = $bookMetadata->chapters[$index + 1];
+    }
+
+    $chapterHeadingData->bookId = $bookMetadata->id;
     $chapterHeadingData->bookName = $bookMetadata->title;
+    $chapterHeadingData->previousChapter = $previousChapter;
+    $chapterHeadingData->nextChapter = $nextChapter;
     $chapterHeadingData->template = "article-head";
     $chapterHeadingData->website = "https://$_SERVER[HTTP_HOST]";
     $chapterHeadingData->id = $this->chapterId;

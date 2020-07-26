@@ -48,3 +48,23 @@
     ></a>
   </div>
   <hr />
+  {if="!@$chapters"}
+  <nav class="chapters-navigation">
+    <a
+      {if="@$previousChapter"}
+        href="/index.php/book/{$bookId}/chapter/{$previousChapter}/"
+      {else}
+        disabled="disabled" href="javascript:void(0)"
+      {/if}
+    >capítulo anterior</a>
+    <a href="/index.php/book/{$bookId}/">voltar ao livro</a>
+    <a
+      {if="@$nextChapter"}
+        href="/index.php/book/{$bookId}/chapter/{$nextChapter}/"
+      {else}
+        disabled="disabled" href="javascript:void(0)"
+      {/if}
+    >próximo capítulo</a>
+  </nav>
+  <hr />
+  {/if}

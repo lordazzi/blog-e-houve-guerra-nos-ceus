@@ -48,3 +48,23 @@
     ></a>
   </div>
   <hr />
+  <?php if( !@$this->var['chapters'] ){ ?>
+  <nav class="chapters-navigation">
+    <a
+      <?php if( @$this->var['previousChapter'] ){ ?>
+        href="/index.php/book/<?php echo $this->var['bookId'];?>/chapter/<?php echo $this->var['previousChapter'];?>/"
+      <?php }else{ ?>
+        disabled="disabled" href="javascript:void(0)"
+      <?php } ?>
+    >capítulo anterior</a>
+    <a href="/index.php/book/<?php echo $this->var['bookId'];?>/">voltar ao livro</a>
+    <a
+      <?php if( @$this->var['nextChapter'] ){ ?>
+        href="/index.php/book/<?php echo $this->var['bookId'];?>/chapter/<?php echo $this->var['nextChapter'];?>/"
+      <?php }else{ ?>
+        disabled="disabled" href="javascript:void(0)"
+      <?php } ?>
+    >próximo capítulo</a>
+  </nav>
+  <hr />
+  <?php } ?>
