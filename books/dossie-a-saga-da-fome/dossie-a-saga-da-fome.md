@@ -1,0 +1,1 @@
+Nem sempre a carne foi um alimento consumido pelas espécies criadas por Javé, com o tempo, com a guerra, algumas coisas foram mudando na sociedade. O Dossiê "A Saga da Fome" conta como depois da queda a carne se tornou um alimento adotado pelos caídos.
