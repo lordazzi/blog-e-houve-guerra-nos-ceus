@@ -1,3 +1,5 @@
+![Imagem de Ger Fa Canove desenhando este desenho.](o-mundo-que-voce-nao-viu.jpg)
+
 Este primeiro livro é um teaser, ou seja, um conjunto de primeiros capítulos do livro sendo publicados para que os leitores possam identificar se tem interesse na narrativa de **"E Houve Guerra nos Céus"**. O teaser incluirá os três primeiros capítulos do livro **O mundo que você não viu**, junto do texto de introdução do cânone. Cada um dos textos que compõe o livro tem autores fictícios, que fazem parte do universo do cânone. O texto introdutório do cânone também é escrito por um destes personagens, ele tem apenas este pequeno primeiro texto explicativo para dar o contexto ao leitor do que se trata o livro. Seguem os textos:
 
 # Introdução de E Houve Guerra nos Céus
